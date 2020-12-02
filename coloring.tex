@@ -22,11 +22,23 @@ If a length $k$ is obvious from the context we write $w\dots$ for $w \in
 \{0,1\}^+$ for the word $w w w w w w w w w w w w \dots$ truncated at
 length $k$. Usually the length of $w$ will be smaller than $k$.
 
+We write $s \rightarrow_i t$ for $i \in \{0,1\}$ if in the pattern there
+is an $i$-edge from $s$ to $t$.
+
 We assume that the pattern is such that every node has either just
 outgoing $0$-edges or just outgoing $1$-edges. Then call a node a
-$i$-node if it has just outgoing $i$-edges. A coloring for $n$-$m$ colors
-is then a coloring with a pattern that has at most $n$ many $0$-nodes
-and at most $m$ many $1$-nodes.
+$i$-node if it has just outgoing $i$-edges. A pattern is a $n$-$m$
+pattern if it has at most $n$ many $0$-nodes and at most $m$ many
+$1$-nodes. 
+
+We also call a homomorphism $h$ from $T_n$ to $P$ for some $n$ and $X$
+pattern $P$ a \emph{$X$ coloring} of $T_n$. The vertices of the pattern
+$P$ are also called \emph{colors} A $\hat{n}$-$m$ coloring $h$ is a
+$n$-$m$ coloring such that $h(0\dots) \rightarrow_0 c$ for all $0$-nodes
+$c$ in the image of $h$. Similarly, a $\hat{n}$-$\hat{m}$ coloring $h$
+is a $n$-$m$ coloring such that $h(0\dots) \rightarrow_0 c$ and
+$h(1\dots) \rightarrow_1 d$ for all $0$-nodes $c$ and $1$-nodes $d$ in
+the image of $h$.
 
 \section*{$2$-$2$ colors}
 
@@ -56,6 +68,8 @@ The following is a $2$-$2$ pattern that colors $T_3$ but not $T_2$:
 Our goal is to show that $T_3$ colors all colorable $2$-$2$ patterns. We
 start with two lemmas.
 
+The first lemma shows that every $2$-$2$ coloring is already a
+$\hat{2}$-$\hat{2}$ coloring.
 \begin{lemma} \label{reachability lemma}
  If there is a homomorphism $h$ from $T_k$ to a $2$-$2$ pattern $P$ then
 $h(0\dots) \rightarrow_0 s$ for all $0$-node $s$ in the image of $h$.
@@ -98,7 +112,7 @@ and $h(01\dots) \rightarrow_0 h(10\dots)$.
 If the length $l$ of the path is larger than $0$ then it can be split
 into a path $v_0 \rightarrow_1 \dots \rightarrow_0 v_{l - 2}$ and a
 length $2$ path $v_{l - 2} \rightarrow_1 v_{l - 1} \rightarrow_0 v_l$.
-Because $P$ contains at most two $1$-edges we have either that
+Because $P$ contains at most two $1$-vertices we have either that
 $h(10\dots) = h(1\dots)$, or that $v_{l - 2} = h(10\dots)$, or that
 $v_{l - 2} = h(1\dots)$.
 
