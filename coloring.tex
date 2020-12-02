@@ -4,8 +4,9 @@
 
 \usepackage{tikz}
 
-\newtheorem{lemma}{Lemma}
-\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
 
 
 \title{Coloring de Bruijn graphs}
@@ -39,6 +40,8 @@ $c$ in the image of $h$. Similarly, a $\hat{n}$-$\hat{m}$ coloring $h$
 is a $n$-$m$ coloring such that $h(0\dots) \rightarrow_0 c$ and
 $h(1\dots) \rightarrow_1 d$ for all $0$-nodes $c$ and $1$-nodes $d$ in
 the image of $h$.
+
+\section*{$n$-$1$ colors}
 
 \section*{$2$-$2$ colors}
 
@@ -156,4 +159,77 @@ homomorphism. At most edges this follows because $h$ is a homomorphism,
 and for the more difficult edges one uses Lemmas \ref{reachability
 lemma}~and~\ref{between lemma}.
 \end{proof}
+
+\section*{$\hat{n}$-$2$ colors}
+
+\begin{lemma} \label{hat one}
+ If $h$ is a $\hat{n}$-$2$ coloring of $T_k$ then there are colors $a$
+and $u$ in the image of $h$ such that
+\[
+ h(10\dots) \rightarrow_1 a \rightarrow_0 u \rightarrow_1 h(0\dots).
+\]
+\end{lemma}
+\begin{proof}
+ Note first that there is an alternating $10 \dots$ path in $T_k$ from
+$10\dots$ to $0 \dots$. This path has an odd length. Because $h$ is a
+homomorphism the path then also exists in the image of $h$ where it
+starts at $h(01\dots)$ and stops at $h(0\dots)$. Now if the path is
+longer than $3$ then we can shorten it: In this case it passes over more
+than two $1$ nodes and hence at least one $1$ color occurs twice in the
+path. If the path shortens to one of lenght $3$ we are done. If it
+shortens to a path of length $1$ then it is of the form $h(10\dots)
+\rightarrow_1 h(0\dots)$. We can still get the required path of length
+$3$ by setting $a = h(01\dots)$ and $u = h(10\dots)$.
+\end{proof}
+
+\begin{lemma} \label{hat two}
+ If $h$ is a $\hat{n}$-$2$ coloring of $T_k$ then there are colors $v$
+and $b$ in the image of $h$ such that
+\[
+ h(01\dots) \rightarrow_0 v \rightarrow_1 b \rightarrow_0 h(1\dots).
+\]
+\end{lemma}
+\begin{proof}
+ Note first that there is an alternating $01 \dots$ path in $T_k$ from
+$01\dots$ to $1 \dots$. This path has an odd length. Because $h$ is a
+homomorphism the path then also exists in the image of $h$ where it
+starts at $h(10\dots)$ and stops at $h(1\dots)$. Now if the path is
+longer than $3$ then we can shorten it: In this case it passes over more
+than two $1$ nodes and hence at least one $1$ color occurs twice in the
+path. If the path shortens to one of lenght $3$ we are done. If it
+shortens to a path of length $1$ then it is of the form $h(01\dots)
+\rightarrow_0 h(1\dots)$. We can still get the required path of length
+$3$ by setting $v = h(10\dots)$ and $b = h(01\dots)$.
+\end{proof}
+
+\begin{proposition}[$T_4$ suffices for $\hat{n}$-$2$ colors]
+ Let $h$ be a $\hat{n}$-$2$ coloring of $T_k$ for some $k > 4$. Then
+there is a homomorphism $g$ from $T_4$ to $P$.
+\end{proposition}
+\begin{proof}
+Let $P$ be the pattern in the coloring $h$ and define the the
+homomorphism $g$ from $T_4$ to $P$ such that:
+\[
+ \begin{array}{rcl}
+ 000x & \mapsto & h(0\dots) \\
+ 001x & \mapsto & h(0\dots) \\
+ 0100 & \mapsto & a \\
+ 0101 & \mapsto & h(01\dots) \\
+ 011x & \mapsto & b
+ \end{array} \quad
+ \begin{array}{rcl}
+ 111x & \mapsto & h(1\dots) \\
+ 110x & \mapsto & h(1\dots) \\
+ 1010 & \mapsto & h(10\dots) \\
+ 1011 & \mapsto & v \\
+ 100x & \mapsto & u
+ \end{array}
+\]
+Here, $a$ and $u$ are as in the statement of Lemma~\ref{hat one} and $v$
+and $b$ are as in the statement of Lemma~\ref{hat two}. It is left to
+the reader to check that this defines a homomorphism.
+\end{proof}
+
+\section*{$\hat{n}$-$\hat{m}$ colors}
+
 \end{document}
