@@ -4,7 +4,7 @@
 
 \usepackage{tikz}
 
-\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 
@@ -17,11 +17,11 @@
 
 \maketitle
 
-\section*{Notation}
+\section{Notation}
 
 If a length $k$ is obvious from the context we write $w\dots$ for $w \in
-\{0,1\}^+$ for the word $w w w w w w w w w w w w \dots$ truncated at
-length $k$. Usually the length of $w$ will be smaller than $k$.
+\{0,1\}^+$ for the word $w w w w w w w w w w w w \dots$ truncated to
+length $k$. Usually, the length of $w$ will be smaller than $k$.
 
 We write $s \rightarrow_i t$ for $i \in \{0,1\}$ if in the pattern there
 is an $i$-edge from $s$ to $t$.
@@ -34,16 +34,72 @@ $1$-nodes.
 
 We also call a homomorphism $h$ from $T_n$ to $P$ for some $n$ and $X$
 pattern $P$ a \emph{$X$ coloring} of $T_n$. The vertices of the pattern
-$P$ are also called \emph{colors} A $\hat{n}$-$m$ coloring $h$ is a
+$P$ are also called \emph{colors}. A $\hat{n}$-$m$ coloring $h$ is a
 $n$-$m$ coloring such that $h(0\dots) \rightarrow_0 c$ for all $0$-nodes
 $c$ in the image of $h$. Similarly, a $\hat{n}$-$\hat{m}$ coloring $h$
 is a $n$-$m$ coloring such that $h(0\dots) \rightarrow_0 c$ and
 $h(1\dots) \rightarrow_1 d$ for all $0$-nodes $c$ and $1$-nodes $d$ in
 the image of $h$.
 
-\section*{$n$-$1$ colors}
+\section{$n$-$1$ colors}
 
-\section*{$2$-$2$ colors}
+\begin{lemma} \label{l:path to other loop}
+ If $h$ is a $n$-$1$ coloring of $T_k$ then there are colors
+$a_1,\dots,a_{n - 1}$ such that there is a path
+\[
+ h(0\dots) \rightarrow_0 a_1 \rightarrow_0 \dots \rightarrow_0 a_{n - 1}
+\rightarrow_0 h(1\dots).
+\]
+\end{lemma}
+\begin{proof}
+ There is a $0$ path of length $k$ from $h(0\dots)$ to $h(1\dots)$ in
+$T_k$. If $k > n$ then at least one $0$ node occurs twice on this path.
+Thus we can shorten the path until we obtain a $0$ path of length $l$
+with $l \leq n$ from $h(0\dots)$ to $h(1\dots)$. If $l = n$ then we have
+already proven the statement of the lemma. If $l < n$ then we can extend
+the path to one of length $n$ by just repeating the $0$ loop at
+$h(0\dots)$ in the beginning of the path.
+\end{proof}
+
+\begin{lemma} \label{l:loop sees all}
+ If $h$ is a $n$-$1$ coloring of $T_k$ then $h(1\dots) \rightarrow_1 a$
+for every $0$ node $a$ in the image of $h$.
+\end{lemma}
+\begin{proof}
+ Note that in the de Bruijn graph every node has a $1$ predecessor.
+Because in the pattern there is only one $1$ node $h(1\dots)$ it follows
+that all of these predecessors are mapped to $h(1\dots)$. Because $h$ is
+a homomorphism it follows that $h(1\dots)$ is the $1$ predecessor of
+every node in the image of $h$.
+\end{proof}
+
+\begin{proposition}[$T_n$ suffices for $n$-$1$ patterns]
+ Let $h$ be a $n$-$1$ coloring of $T_k$ for some $k$. Then
+there is a homomorphism $g$ from $T_n$ to $P$.
+\end{proposition}
+\begin{proof}
+Let $P$ be the pattern in the coloring $h$ and define the the
+homomorphism $g$ from $T_n$ to $P$ such that:
+\[
+ \begin{array}{rcl}
+ 0\dots0 & \mapsto & h(0\dots) \\
+ 0\dots01 & \mapsto & a_1 \\
+ 0\dots01x & \mapsto & a_2 \\
+ \vdots & \mapsto & \vdots \\
+ 0\dots01x_1\dots x_j & \mapsto & a_{j + 1} \\
+ \vdots & \mapsto & \vdots \\
+ 01x_1\dots x_{n - 2} & \mapsto & a_{n - 1} \\
+ \end{array} \quad
+ \begin{array}{rcl}
+ 1x_1\dots x_{n - 1} & \mapsto & h(1\dots) \\
+ \end{array}
+\]
+Here, $a_1,\dots,a_{n - 1}$ are as in Lemma~\ref{l:path to other loop}.
+To check that this is a homomorphism we use Lemmas \ref{l:path to
+other loop}~and~\ref{l:loop sees all}.
+\end{proof}
+
+\section{$2$-$2$ colors}
 
 The following is a $2$-$2$ pattern that colors $T_3$ but not $T_2$:
 \begin{center}
@@ -160,7 +216,7 @@ and for the more difficult edges one uses Lemmas \ref{reachability
 lemma}~and~\ref{between lemma}.
 \end{proof}
 
-\section*{$\hat{n}$-$2$ colors}
+\section{$\hat{n}$-$2$ colorings}
 
 \begin{lemma} \label{hat one}
  If $h$ is a $\hat{n}$-$2$ coloring of $T_k$ then there are colors $a$
@@ -176,7 +232,7 @@ homomorphism the path then also exists in the image of $h$ where it
 starts at $h(01\dots)$ and stops at $h(0\dots)$. Now if the path is
 longer than $3$ then we can shorten it: In this case it passes over more
 than two $1$ nodes and hence at least one $1$ color occurs twice in the
-path. If the path shortens to one of lenght $3$ we are done. If it
+path. If the path shortens to one of length $3$ we are done. If it
 shortens to a path of length $1$ then it is of the form $h(10\dots)
 \rightarrow_1 h(0\dots)$. We can still get the required path of length
 $3$ by setting $a = h(01\dots)$ and $u = h(10\dots)$.
@@ -196,13 +252,13 @@ homomorphism the path then also exists in the image of $h$ where it
 starts at $h(10\dots)$ and stops at $h(1\dots)$. Now if the path is
 longer than $3$ then we can shorten it: In this case it passes over more
 than two $1$ nodes and hence at least one $1$ color occurs twice in the
-path. If the path shortens to one of lenght $3$ we are done. If it
+path. If the path shortens to one of length $3$ we are done. If it
 shortens to a path of length $1$ then it is of the form $h(01\dots)
 \rightarrow_0 h(1\dots)$. We can still get the required path of length
 $3$ by setting $v = h(10\dots)$ and $b = h(01\dots)$.
 \end{proof}
 
-\begin{proposition}[$T_4$ suffices for $\hat{n}$-$2$ colors]
+\begin{proposition}[$T_4$ suffices for $\hat{n}$-$2$ colorings]
  Let $h$ be a $\hat{n}$-$2$ coloring of $T_k$ for some $k > 4$. Then
 there is a homomorphism $g$ from $T_4$ to $P$.
 \end{proposition}
@@ -230,6 +286,6 @@ and $b$ are as in the statement of Lemma~\ref{hat two}. It is left to
 the reader to check that this defines a homomorphism.
 \end{proof}
 
-\section*{$\hat{n}$-$\hat{m}$ colors}
+\section{$\hat{n}$-$\hat{m}$ colorings}
 
 \end{document}
