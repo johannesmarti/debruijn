@@ -2,6 +2,8 @@
 
 \usepackage{amsthm}
 
+\newcommand{\any}{{*}}
+
 \usepackage{tikz}
 
 \newtheorem{theorem}{Theorem}[section]
@@ -74,7 +76,7 @@ every node in the image of $h$.
 \end{proof}
 
 \begin{proposition}[$T_n$ suffices for $n$-$1$ patterns]
- Let $h$ be a $n$-$1$ coloring of $T_k$ for some $k$. Then
+ Let $h$ be an $n$-$1$ coloring of $T_k$ for some $k$. Then
 there is a homomorphism $g$ from $T_n$ to $P$.
 \end{proposition}
 \begin{proof}
@@ -219,7 +221,7 @@ lemma}~and~\ref{between lemma}.
 \section{$\hat{n}$-$2$ colorings}
 
 \begin{lemma} \label{hat one}
- If $h$ is a $\hat{n}$-$2$ coloring of $T_k$ then there are colors $a$
+ If $h$ is a $n$-$2$ coloring of $T_k$ then there are colors $a$
 and $u$ in the image of $h$ such that
 \[
  h(10\dots) \rightarrow_1 a \rightarrow_0 u \rightarrow_1 h(0\dots).
@@ -239,7 +241,7 @@ $3$ by setting $a = h(01\dots)$ and $u = h(10\dots)$.
 \end{proof}
 
 \begin{lemma} \label{hat two}
- If $h$ is a $\hat{n}$-$2$ coloring of $T_k$ then there are colors $v$
+ If $h$ is a $n$-$2$ coloring of $T_k$ then there are colors $v$
 and $b$ in the image of $h$ such that
 \[
  h(01\dots) \rightarrow_0 v \rightarrow_1 b \rightarrow_0 h(1\dots).
@@ -259,7 +261,7 @@ $3$ by setting $v = h(10\dots)$ and $b = h(01\dots)$.
 \end{proof}
 
 \begin{proposition}[$T_4$ suffices for $\hat{n}$-$2$ colorings]
- Let $h$ be a $\hat{n}$-$2$ coloring of $T_k$ for some $k > 4$. Then
+ Let $h$ be an $\hat{n}$-$2$ coloring of $T_k$ for some $k > 4$. Then
 there is a homomorphism $g$ from $T_4$ to $P$.
 \end{proposition}
 \begin{proof}
@@ -267,18 +269,16 @@ Let $P$ be the pattern in the coloring $h$ and define the the
 homomorphism $g$ from $T_4$ to $P$ such that:
 \[
  \begin{array}{rcl}
- 000x & \mapsto & h(0\dots) \\
- 001x & \mapsto & h(0\dots) \\
+ 00\any\any & \mapsto & h(0\dots) \\
  0100 & \mapsto & a \\
  0101 & \mapsto & h(01\dots) \\
- 011x & \mapsto & b
+ 011\any & \mapsto & b
  \end{array} \quad
  \begin{array}{rcl}
- 111x & \mapsto & h(1\dots) \\
- 110x & \mapsto & h(1\dots) \\
- 1010 & \mapsto & h(10\dots) \\
+ 11\any\any & \mapsto & h(1\dots) \\
  1011 & \mapsto & v \\
- 100x & \mapsto & u
+ 1010 & \mapsto & h(10\dots) \\
+ 100\any & \mapsto & u
  \end{array}
 \]
 Here, $a$ and $u$ are as in the statement of Lemma~\ref{hat one} and $v$
@@ -286,6 +286,64 @@ and $b$ are as in the statement of Lemma~\ref{hat two}. It is left to
 the reader to check that this defines a homomorphism.
 \end{proof}
 
+
+\section{$\hat{n}$-$\hat{3}$ colorings}
+
+As in the previous section we can prove the following lemmas:
+\begin{lemma} \label{three zero}
+ If $h$ is a $n$-$3$ coloring of $T_k$ then there are colors $a_1$,
+$u_2$, $a_3$ and $u_4$ in the image of $h$ such that
+\[
+ h(10\dots) \rightarrow_1 a_1 \rightarrow_0 u_2 \rightarrow_1 a_3
+\rightarrow_0 u_4 \rightarrow_1 h(0\dots).
+\]
+\end{lemma}
+
+\begin{lemma} \label{three one}
+ If $h$ is a $n$-$3$ coloring of $T_k$ then there are colors $u_1$,
+$a_2$, $u_3$ and $a_4$ in the image of $h$ such that
+\[
+ h(01\dots) \rightarrow_0 u_1 \rightarrow_1 a_2 \rightarrow_0 u_3
+\rightarrow_1 a_4 \rightarrow_0 h(1\dots).
+\]
+\end{lemma}
+
+We then obtain:
+\begin{proposition}[$T_6$ suffices for $\hat{n}$-$\hat{3}$ colorings]
+ Let $h$ be an $\hat{n}$-$\hat{3}$ coloring of $T_k$ for some $k > 6$. Then
+there is a homomorphism $g$ from $T_6$ to $P$.
+\end{proposition}
+\begin{proof}
+Let $P$ be the pattern in the coloring $h$ and define the the
+homomorphism $g$ from $T_6$ to $P$ such that:
+\[
+ \begin{array}{rcl}
+ 00\any\any\any\any & \mapsto & h(0\dots) \\
+ 0100\any\any & \mapsto & a_3 \\
+ 010100 & \mapsto & a_1 \\
+ 010101 & \mapsto & h(01\dots) \\
+ 01011\any & \mapsto & a_2 \\
+ 011\any\any\any & \mapsto & a_4
+ \end{array} \quad
+ \begin{array}{rcl}
+ 11\any\any\any\any & \mapsto & h(1\dots) \\
+ 1011\any\any & \mapsto & u_3 \\
+ 101011 & \mapsto & u_1 \\
+ 101010 & \mapsto & h(10\dots) \\
+ 10100\any & \mapsto & u_2 \\
+ 100\any\any\any & \mapsto & u_4
+ \end{array}
+\]
+Here, $a_1$, $u_2$, $a_3$ and $u_4$ are as in statement of
+Lemma~\ref{three zero} and $u_1$, $a_2$, $u_3$ and $a_4$ are as in the
+statement of Lemma~\ref{three one}. It is left to the reader to check
+that this defines a homomorphism.
+\end{proof}
+
+
 \section{$\hat{n}$-$\hat{m}$ colorings}
+
+An easy generalization of what we do in the previous two sections shows
+that $T_{2m}$ suffices for $\hat{n}$-$\hat{m}$ colorings.
 
 \end{document}
