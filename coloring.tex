@@ -346,4 +346,61 @@ that this defines a homomorphism.
 An easy generalization of what we do in the previous two sections shows
 that $T_{2m}$ suffices for $\hat{n}$-$\hat{m}$ colorings.
 
+\section{$3$-$3$ colorings}
+
+\begin{lemma} \label{three one}
+ If $h$ is a $n$-$3$ coloring of $T_k$ then there are colors $u_1$,
+$a_2$, $u_3$ and $a_4$ in the image of $h$ such that
+\[
+ h(01\dots) \rightarrow_0 u_1 \rightarrow_1 a_2 \rightarrow_0 u_3
+\rightarrow_1 a_4 \rightarrow_0 h(1\dots).
+\]
+\end{lemma}
+\begin{lemma} \label{three one}
+ If $h$ is a $n$-$3$ coloring of $T_k$ then there are colors $u_1$,
+$a_2$, $u_3$ and $a_4$ in the image of $h$ such that
+\[
+ h(01\dots) \rightarrow_0 u_1 \rightarrow_1 a_2 \rightarrow_0 u_3
+\rightarrow_1 a_4 \rightarrow_0 h(100\dots).
+\]
+\end{lemma}
+\begin{lemma} \label{three one}
+ If $h$ is a $n$-$3$ coloring of $T_k$ then there are colors $u_1$,
+$a_2$, $u_3$ and $a_4$ in the image of $h$ such that
+\[
+ h(100\dots) \rightarrow_1 u_1 \rightarrow_0 a_2 \rightarrow_0 u_3
+\rightarrow_1 a_4 \rightarrow_0 h(01\dots).
+\]
+\end{lemma}
+
+\[
+ \begin{array}{rcl}
+ 000\any\any\any\any\any\any & \mapsto & h(0\dots) \\
+ 001100110 & \mapsto & h(0011\dots) \\
+ 011001100 & \mapsto & h(0110\dots) \\
+ 011011011 & \mapsto & h(011\dots) \\
+ 001001001 & \mapsto & h(001\dots) \\
+ 010010010 & \mapsto & h(010\dots) \\
+ 010101010 & \mapsto & h(01\dots) \\
+
+ 0100\any\any & \mapsto & a_3 \\
+ 010100 & \mapsto & a_1 \\
+ 01011\any & \mapsto & a_2 \\
+ 011\any\any\any & \mapsto & a_4
+ \end{array} \quad
+ \begin{array}{rcl}
+ 111\any\any\any\any\any\any & \mapsto & h(1\dots) \\
+ 110011001 & \mapsto & h(1100\dots) \\
+ 100110011 & \mapsto & h(1001\dots) \\
+ 100100100 & \mapsto & h(100\dots) \\
+ 110110110 & \mapsto & h(110\dots) \\
+ 101101101 & \mapsto & h(101\dots) \\
+ 101010101 & \mapsto & h(10\dots) \\
+
+ 1011\any\any & \mapsto & u_3 \\
+ 101011 & \mapsto & u_1 \\
+ 10100\any & \mapsto & u_2 \\
+ 100\any\any\any & \mapsto & u_4
+ \end{array}
+\]
 \end{document}
