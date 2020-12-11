@@ -1,0 +1,48 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsthm}
+
+\usepackage{tikz}
+
+\newtheorem{example}{Example}[section]
+
+\title{Nasty examples}
+
+\author{Johannes Marti and Leif Sabellek}
+
+\begin{document}
+
+\maketitle
+
+\section{Notation}
+
+\begin{example}
+Colors $a$, $b$ and $c$ with $a \to b$, $b \to c$, $c \to a$ and $x \to
+x$ for all $x \in \{a,b,c\}$.
+\[
+ \begin{array}{rcl}
+ 00000 & \mapsto & a \\
+ 00001 & \mapsto & b \\
+ 00010 & \mapsto & b \\
+ 00011 & \mapsto & c \\
+ 00100 & \mapsto & b \\
+ 00101 & \mapsto & c \\
+ 00110 & \mapsto & c \\
+ 00111 & \mapsto & a \\
+ 01000 & \mapsto & b \\
+ 01001 & \mapsto & c \\
+ 01010 & \mapsto & c \\
+ 01011 & \mapsto & a \\
+ 01100 & \mapsto & c \\
+ 01101 & \mapsto & a \\
+ 01110 & \mapsto & a \\
+ 01111 & \mapsto & b \\
+\end{array}
+\]
+\end{example}
+
+
+
+
+
+\end{document}
