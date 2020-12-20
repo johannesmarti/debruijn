@@ -14,7 +14,7 @@
 
 \maketitle
 
-\section{Notation}
+\section{Strange tree pattern}
 
 \begin{example}
 Colors $a$, $b$ and $c$ with $a \to b$, $b \to c$, $c \to a$ and $x \to
@@ -42,6 +42,35 @@ x$ for all $x \in \{a,b,c\}$.
 \end{example}
 
 
+\section{All paths}
+
+\begin{center}
+\begin{tikzpicture}
+ \node (u) at (0,4) {$u$};
+ \node (v) at (0,2)  {$v$};
+ \node (w) at (0,0)  {$w$};
+
+ \node (a) at (3,3) {$a$};
+ \node (b) at (3,1) {$b$};
+
+ \draw [<->] (u) edge node[left] {$0$} (v);
+ \draw [<->] (v) edge node[left] {$0$} (w);
+ \draw [<->] (u) edge [bend right=40] node[left] {$0$} (w);
+ \draw [->] (w) edge [loop below] node[left] {$0$} (w);
+
+ \draw [->] (u) edge [bend left=20] node [above] {$0$} (a);
+ \draw [->] (a) edge [bend left=20] node [above] {$1$} (u);
+ \draw [->] (a) edge node [below] {$1$} (v);
+
+ \draw [->] (b) edge node [below] {$1$} (w);
+
+ \draw [->] (a) edge [loop right] node [right] {$1$} (a);
+ \draw [<->] (a) edge node [right] {$1$} (b);
+\end{tikzpicture}
+\end{center}
+I think in this pattern nodes for all worlds exists. But the path from
+$01 \dots$ to $0 \dots$ is of odd length. It should however be of even
+lenght.
 
 
 
