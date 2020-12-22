@@ -46,37 +46,50 @@ x$ for all $x \in \{a,b,c\}$.
 
 \begin{center}
 \begin{tikzpicture}
- \node (u) at (0,6) {$u$};
+ \node (u) at (-1,6) {$u$};
  \node (v) at (0,4)  {$v$};
  \node (w) at (0,2)  {$w$};
- \node (x) at (0,0)  {$x$};
+ \node (x) at (-1,0)  {$x$};
 
- \node (a) at (3,6) {$a$};
+ \node (a) at (4,6) {$a$};
  \node (b) at (3,4) {$b$};
  \node (c) at (3,2) {$c$};
- \node (d) at (3,0) {$d$};
+ \node (d) at (4,0) {$d$};
 
- \draw [->] (w) edge [loop above] node [above] {$0$} (w);
+ \draw [<->] (u) edge node [right] {$0$} (v);
+ \draw [<->] (u) edge [bend right=20] node [left] {$0$} (w);
+ \draw [<->] (u) edge [bend right=30] node [left] {$0$} (x);
+ \draw [<->] (v) edge node [left] {$0$} (w);
+ \draw [<->] (v) edge [bend right=20] node [left] {$0$} (x);
+ \draw [<->] (w) edge node [right] {$0$} (x);
+
+ \draw [<->] (a) edge node [left] {$1$} (b);
+ \draw [<->] (a) edge [bend left=20] node [right] {$1$} (c);
+ \draw [<->] (a) edge [bend left=30] node [right] {$1$} (d);
+ \draw [<->] (b) edge node [right] {$1$} (c);
+ \draw [<->] (b) edge [bend left=20] node [right] {$1$} (d);
+ \draw [<->] (c) edge node [left] {$1$} (d);
+
+ \draw [->] (w) edge [loop left] node [below] {$0$} (w);
  \draw [->] (a) edge [loop right] node [right] {$1$} (a);
 
- \draw [->] (u) edge [bend left=20] node [above] {$0$} (a);
+ \draw [->] (u) edge [bend left=15] node [above] {$0$} (a);
  \draw [->] (u) edge node [below] {$0$} (b);
  \draw [->] (w) edge node [below] {$0$} (d);
  \draw [->] (x) edge node [below] {$0$} (c);
 
 
- \draw [->] (a) edge [bend left=20] node [above] {$1$} (u);
+ \draw [->] (a) edge [bend left=15] node [above] {$1$} (u);
  \draw [->] (b) edge node [below] {$1$} (v);
- \draw [->] (c) edge node [below] {$1$} (w);
+ \draw [->] (c) edge node [above] {$1$} (w);
  \draw [->] (d) edge node [below] {$1$} (x);
 
 \end{tikzpicture}
 \end{center}
-Where we assume that between nodes of the same color all edges exist,
-but the self loops which only exists for the nodes where they are drawn.
-I think in this pattern nodes for all worlds exists. But the path from
-$01 \dots$ to $0 \dots$ is of odd length. It should however be of even
-lenght.
-
+In this pattern there is for every word $w$ a node such that there is a
+$w$-loop at the node and the node sees every other node via a $w$-path.
+But it can not color any $T_n$ because in any $T_n$ the path from $01
+\dots$ to $0 \dots$ is of even length and there is no even length
+$01$-path from $u$ to $w$ in the pattern.
 
 \end{document}
