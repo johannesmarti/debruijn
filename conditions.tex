@@ -1,0 +1,46 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsthm}
+
+\usepackage{tikz}
+
+\newtheorem{example}{Example}[section]
+
+\title{Conditions}
+
+\author{Johannes Marti and Leif Sabellek}
+
+\begin{document}
+
+\maketitle
+
+\section{Simple path condition}
+
+There is a subset $S$ of the pattern such that for each word $w$ there
+is a node $s \in S$ which has a $w$-loop and such that there is a
+$w$-path form $s$ to any other node $s' \in S$.
+
+Example~2 shows that this condition is not sufficient.
+
+
+\section{Path condition}
+
+For all words $w$ there is a node $s_w$ such that $s_w$ has a $w$ loop
+and for all $w'$ there is some $n$ such that there is a $w$-path of
+length $n \cdot |w| + o(w,w')$ from $s_w$ to $s_{w'}$. Here, $o(w,w')$ is then
+length of the shortest $u$ such that $w = u \cdot v$ and $w' = v \cdot
+z$.
+
+
+
+\iffalse
+0011 to 010
+
+path is of length 4n + 0
+
+00110011001
+01001001001
+there is a path of lenght 9!
+\fi
+
+\end{document}
