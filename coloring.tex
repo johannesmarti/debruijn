@@ -346,35 +346,28 @@ that this defines a homomorphism.
 An easy generalization of what we do in the previous two sections shows
 that $T_{2m}$ suffices for $\hat{n}$-$\hat{m}$ colorings.
 
-
-\section{$3$-$3$ colorings}
-
-just do it for $0\dots$ and $01\dots$ first:
-\[
- \begin{array}{lcl}
- 000\dots & \mapsto & h(0\dots) \\
- 111\dots & \mapsto & h(1\dots) \\
- 010101\dots & \mapsto & h(01\dots) \\
- 101010\dots & \mapsto & h(10\dots) \\
- \end{array}
-\]
-
-some more general stuff
+\section{$2$-$2$-$2$ colorings}
 
 \[
- \begin{array}{lcl}
- 000\dots & \mapsto & h(0\dots) \\
- 111\dots & \mapsto & h(1\dots) \\
- 010101\dots & \mapsto & h(01\dots) \\
- 101010\dots & \mapsto & h(10\dots) \\
- 010100\dots & \mapsto & path to 0, 100, 1100 \\
- 101011\dots & \mapsto & path to 1, 011, 0011 \\
- 010110\dots & \mapsto & path to 011, 0011 \\
- 101001\dots & \mapsto & path to 100, 1100 \\
- 010111\dots & \mapsto & path to 1 \\
- 101000\dots & \mapsto & path to 0 \\
- 0101100\dots & \mapsto & path to 0011 \\
- 0101101\dots & \mapsto & path to 011 \\
- \end{array}
+\begin{array}{ll}
+aa & a\dots \\
+bb & b\dots \\
+cc & c\dots \\
+\\
+aba & ab\dots \\
+bab & ba\dots \\
+aca & ac\dots \\
+cac & ca\dots \\
+bcb & bc\dots \\
+cbc & cb\dots \\
+\\
+baa & ab\dots \to a\dots \\
+abb & ba\dots \to b\dots \\
+caa & ac\dots \to a\dots \\
+acc & ca\dots \to c\dots \\
+cbb & bc\dots \to b\dots \\
+bcc & cb\dots \to c\dots \\
+\end{array}
 \]
+
 \end{document}
