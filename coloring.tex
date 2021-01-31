@@ -349,62 +349,32 @@ that $T_{2m}$ suffices for $\hat{n}$-$\hat{m}$ colorings.
 
 \section{$3$-$3$ colorings}
 
-\begin{lemma} \label{three one}
- If $h$ is a $n$-$3$ coloring of $T_k$ then there are colors $u_1$,
-$a_2$, $u_3$ and $a_4$ in the image of $h$ such that
+just do it for $0\dots$ and $01\dots$ first:
 \[
- h(01\dots) \rightarrow_0 u_1 \rightarrow_1 a_2 \rightarrow_0 u_3
-\rightarrow_1 a_4 \rightarrow_0 h(1\dots).
-\]
-\end{lemma}
-\begin{lemma} \label{three one}
- If $h$ is a $n$-$3$ coloring of $T_k$ then there are colors $u_1$,
-$a_2$, $u_3$ and $a_4$ in the image of $h$ such that
-\[
- h(01\dots) \rightarrow_0 u_1 \rightarrow_1 a_2 \rightarrow_0 u_3
-\rightarrow_1 a_4 \rightarrow_0 h(100\dots).
-\]
-\end{lemma}
-\begin{lemma} \label{three one}
- If $h$ is a $n$-$3$ coloring of $T_k$ then there are colors $u_1$,
-$a_2$, $u_3$ and $a_4$ in the image of $h$ such that
-\[
- h(100\dots) \rightarrow_1 u_1 \rightarrow_0 a_2 \rightarrow_0 u_3
-\rightarrow_1 a_4 \rightarrow_0 h(01\dots).
-\]
-\end{lemma}
-
-\[
- \begin{array}{rcl}
- 0000\any\any\any\any\any\any & \mapsto & h(0\dots) \\
- 0011001100 & \mapsto & h(0011\dots) \\
- 0110011001 & \mapsto & h(0110\dots) \\
- 0110110110 & \mapsto & h(011\dots) \\
- 0010010010 & \mapsto & h(001\dots) \\
- 0100100100 & \mapsto & h(010\dots) \\
- 0101010101 & \mapsto & h(01\dots) \\
-
- 01111\any\any\any\any\any & \mapsto & h(0 \cdot (1\dots)) \\
- 001111\any\any\any\any & \mapsto & h(00 \cdot (1\dots)) \\
- 0001111\any\any\any & \mapsto & \mbox{between } h(00 \cdot (1\dots))
-\mbox{ and } h(0\dots) \\
-
+ \begin{array}{lcl}
+ 000\dots & \mapsto & h(0\dots) \\
+ 111\dots & \mapsto & h(1\dots) \\
+ 010101\dots & \mapsto & h(01\dots) \\
+ 101010\dots & \mapsto & h(10\dots) \\
  \end{array}
 \]
-\[
- \begin{array}{rcl}
- 1111\any\any\any\any\any\any & \mapsto & h(1\dots) \\
- 1100110011 & \mapsto & h(1100\dots) \\
- 1001100110 & \mapsto & h(1001\dots) \\
- 1001001001 & \mapsto & h(100\dots) \\
- 1101101101 & \mapsto & h(110\dots) \\
- 1011011011 & \mapsto & h(101\dots) \\
- 1010101010 & \mapsto & h(10\dots) \\
 
- 10000\any\any\any\any\any & \mapsto & h(1 \cdot (0\dots)) \\
- 110000\any\any\any\any & \mapsto & h(11 \cdot (0\dots)) \\
- 1110000\any\any\any & \mapsto & \mbox{between } h(11 \cdot (0\dots))
-\mbox{ and } h(1\dots) \\
+some more general stuff
+
+\[
+ \begin{array}{lcl}
+ 000\dots & \mapsto & h(0\dots) \\
+ 111\dots & \mapsto & h(1\dots) \\
+ 010101\dots & \mapsto & h(01\dots) \\
+ 101010\dots & \mapsto & h(10\dots) \\
+ 010100\dots & \mapsto & path to 0, 100, 1100 \\
+ 101011\dots & \mapsto & path to 1, 011, 0011 \\
+ 010110\dots & \mapsto & path to 011, 0011 \\
+ 101001\dots & \mapsto & path to 100, 1100 \\
+ 010111\dots & \mapsto & path to 1 \\
+ 101000\dots & \mapsto & path to 0 \\
+ 0101100\dots & \mapsto & path to 0011 \\
+ 0101101\dots & \mapsto & path to 011 \\
  \end{array}
 \]
 \end{document}
