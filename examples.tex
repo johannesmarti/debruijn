@@ -92,4 +92,25 @@ But it can not color any $T_n$ because in any $T_n$ the path from $01
 \dots$ to $0 \dots$ is of even length and there is no even length
 $01$-path from $u$ to $w$ in the pattern.
 
+\section{Simple example}
+
+The following seems to not allow for a homomorphism. But why?
+\begin{center}
+\begin{tikzpicture}
+ \node (a) at (0,0) {$a$};
+ \node (c) at (2,0) {$c$};
+ \node (b) at (4,0)  {$b$};
+
+ \draw [<->] (a) edge node[above] {$0,1$} (c);
+ \draw [->] (a) edge [loop left] node[left] {$0$} (a);
+ \draw [->] (b) edge [loop right] node[right] {$1$} (a);
+
+ \draw [->] (c) edge [bend left=15] node[above] {$0$} (b);
+
+ \draw [->] (b) edge [bend left=15] node[below] {$1$} (c);
+\end{tikzpicture}
+\end{center}
+
+
+
 \end{document}
