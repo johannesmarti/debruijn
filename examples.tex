@@ -134,4 +134,26 @@ There is no point where to map $101$.
 \end{center}
 
 
+\section{Force 3 dimensions}
+
+\begin{center}
+\begin{tikzpicture}
+ \node (a) at (0,0) {$a$};
+ \node (c) at (2,0) {$c$};
+ \node (b) at (4,0)  {$b$};
+
+ \draw [->] (a) edge [loop left] node[left] {$0$} (a);
+ \draw [->] (b) edge [loop right] node[right] {$1$} (a);
+
+ \draw [<->] (a) edge [bend left=15] node[above] {$0$} (c);
+ \draw [->] (a) edge [bend right=15] node[below] {$1$} (c);
+
+ \draw [->] (c) edge node[above] {$0$} (b);
+
+ \draw [->] (b) edge [bend right=60] node[above] {$1$} (a);
+\end{tikzpicture}
+\end{center}
+
+
+
 \end{document}
