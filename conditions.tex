@@ -14,14 +14,6 @@
 
 \maketitle
 
-\section{Simple path condition}
-
-There is a subset $S$ of the pattern such that for each word $w$ there
-is a node $s \in S$ which has a $w$-loop and such that there is a
-$w$-path form $s$ to any other node $s' \in S$.
-
-Example~2 shows that this condition is not sufficient.
-
 
 \section{Automata condition}
 
@@ -52,9 +44,9 @@ For all words $w$ there is a point $x$ such that
 \end{itemize}
 
 (I think that if the $0$ and $1$ relations in the pattern are right
-total then this condition is equivalent to the previous condition. If
-the relations are not we already know that there is no de Bruijn
-homomorphism.)
+total then this is entailed by the previous condition. If
+the relations are not right total we already know that there is no de
+Bruijn homomorphism.)
 This condition is co-c.e. The $n$ in the first bullet point can
 be bound!
 
