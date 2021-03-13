@@ -23,24 +23,39 @@ $w$-path form $s$ to any other node $s' \in S$.
 Example~2 shows that this condition is not sufficient.
 
 
-\section{Path condition}
+\section{Automata condition}
 
-For all words $w$ there is a node $s_w$ such that $s_w$ has a $w$ loop
-and for all $w'$ there is some $n$ such that there is a $w$-path of
-length $n \cdot |w| + o(w,w')$ from $s_w$ to $s_{w'}$. Here, $o(w,w')$ is then
-length of the shortest $u$ such that $w = u \cdot v$ and $w' = v \cdot
-z$.
+For cofinitely many words $w$ there is a point $x$ such that every other
+point can be reached from $x$ with a $w$-path.
 
+Does not work because it does not force reflexive loops.
 
 
-\iffalse
-0011 to 010
+\section{More complex condition}
 
-path is of length 4n + 0
+A point $x$ is a \emph{candidate} for $w$ if
+\begin{itemize}
+ \item $x$ sees every other point over $w$.
+ \item if $w$ is a repetition of $v$ then $x$ has a $v$-loop.
+\end{itemize}
 
-00110011001
-01001001001
-there is a path of lenght 9!
-\fi
+The condition is that there are only finitely many words for which there
+is no candidate.
+
+
+\section{Easier version of the more complex condition}
+
+For all words $w$ there is a point $x$ such that
+\begin{itemize}
+ \item $x$ sees every other point under $w^n$ for some $n$, and
+ \item $x$ has a $w$ loop.
+\end{itemize}
+
+(I think that if the $0$ and $1$ relations in the pattern are right
+total then this condition is equivalent to the previous condition. If
+the relations are not we already know that there is no de Bruijn
+homomorphism.)
+This condition is co-c.e. The $n$ in the first bullet point can
+be bound!
 
 \end{document}
