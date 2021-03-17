@@ -43,11 +43,36 @@ For all words $w$ there is a point $x$ such that
  \item $x$ has a $w$ loop.
 \end{itemize}
 
-(I think that if the $0$ and $1$ relations in the pattern are right
-total then this is entailed by the previous condition. If
-the relations are not right total we already know that there is no de
-Bruijn homomorphism.)
-This condition is co-c.e. The $n$ in the first bullet point can
-be bound!
+This condition is not enough because of the hamburger example.
+
+We can map:
+\[
+\begin{array}{lll}
+ 00\star & \mapsto a \\
+ 01\star & \mapsto a \\
+ 10\star & \mapsto c \\
+ 11\star & \mapsto b
+\end{array}
+\]
+
+There is a $1010$-path from $c$ to $b$, it goes $c \rightarrow_1 a
+\rightarrow_0 a \rightarrow_1 c \rightarrow_0 b$.
+
+
+\section{Cycle condition}
+
+Given a word $w = a_1 \dots a_n$ the set of cyclings of $w$ is the set
+$C(w) = \{uv \mid vu = w\}$. Note that the number of elements in $C(w)$
+is bound by $|w|$.
+
+For all words $w$ there is an assigment $x : C(w) \to P$ such that for
+all $v \in C(w)$:
+\begin{enumerate}
+ \item $x(v)$ sees every other point under $v^n$ for some $n$, and
+ \item $x(v) \rightarrow_a x(ua)$ if $v = au$.
+\end{enumerate}
+
+This might not exclude the hamburger!
+
 
 \end{document}
