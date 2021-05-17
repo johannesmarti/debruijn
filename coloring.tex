@@ -4,6 +4,8 @@
 
 \newcommand{\any}{{*}}
 \newcommand{\size}[1]{{|{#1}|_s}}
+\newcommand{\first}[1]{\mathsf{first}({#1})}
+\newcommand{\last}[1]{\mathsf{last}({#1})}
 
 \usepackage{tikz}
 
@@ -390,12 +392,12 @@ $v' = u a$, $e = \star$ and $e' = \star$;
 $v' = u a$, $e = \star$ and $e' = \varepsilon$;
  \item $d = \star$, $d' = \star$, $v = a u$ for some $u \in \Sigma^*$,
 $v' = u a$, $e \in \Sigma^*$ and $e' = e b$ for some $b \in \Sigma$;
- \item $d = \epsilon$, $d' = \star$, $a \neq \mathsf{last}(v)$, $v =
-v'$, $e = \star$ and $e' = \star$;
- \item $d = \epsilon$, $d' = \star$, $a \neq \mathsf{last}(v)$, $v =
-v'$, $e = \star$ and $e' = \epsilon$;
- \item $d = \epsilon$, $d' = \star$, $a \neq \mathsf{last}(v)$, $v =
-v'$, $e \in \Sigma^*$ and $e' = e b$ for some $b \in \Sigma$;
+ \item $d = \epsilon$, $d' = \star$, $a \neq \last{v}$, $v = v'$, $e =
+\star$ and $e' = \star$;
+ \item $d = \epsilon$, $d' = \star$, $a \neq \last{v}$, $v = v'$, $e =
+\star$ and $e' = \epsilon$;
+ \item $d = \epsilon$, $d' = \star$, $a \neq \last{v}$, $v = v'$, $e \in
+\Sigma^*$ and $e' = e b$ for some $b \in \Sigma$;
  \item $d = a u$ for $u \in \Sigma^*$, $d' = u$, $v = v'$, $e = \star$
 and $e' = \star$;
  \item $d = a u$ for $u \in \Sigma^*$, $d' = u$, $v = v'$, $e = \star$
@@ -408,9 +410,22 @@ and $e' = \epsilon$; or
 \texttt{Give some pictures of $L_3(1)$ and $L_2(01)$.}
 
 \begin{proposition}
- Let $n > 0$, $w = v a$ and $b \neq a$. Then there is a homomorphism $h$
-from $L_n(w)$ to $T_n$ such that $h(\star,w,b^{n - 1}) = b^n$.
+ Let $w = u a$, $b \neq a$ and $n \geq |w|$. Then there is a
+homomorphism $h$ from $L_n(w)$ to $T_n$ such that $h(\star,v,\star) = v
+\dots$ for all $v \in C(W)$ and $h(\star,w,b^{n - 1}) = b^n$.
 \end{proposition}
+\begin{proof}
+ We define $h$ such that it maps $(d,v,e)$ to $h(d,v,e) = d' v' e'$
+where $v' = (v^\omega)_{|n - m}$ is the word $v v v\dots$ truncated at
+length $n - m$ for $m = \size{d} + \size{e}$ and the words $d'$ and $e'$
+are defined as follows: First, $d' = \epsilon$ if $d = \star$ and
+otherwise $d' = d b$ for the unique $b \in \Sigma$ with $b \neq
+\last{v}$ if $d \in \Sigma^*$. Similarly we set $e' = \epsilon$ if $e =
+\star$ and otherwise $e' = b e$ for the unique $b \in \Sigma$ with $b
+\neq \first{v}$ if $d \in \Sigma^*$.
+
+\texttt{check that this is indeed a homomorphism!}
+\end{proof}
 
 
 \end{document}
