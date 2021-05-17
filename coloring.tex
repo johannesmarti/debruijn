@@ -419,14 +419,21 @@ homomorphism $h$ from $L_n(w)$ to $T_n$ such that $h(\star,v,\star) = v
 \dots$ for all $v \in C(W)$ and $h(\star,w,b^{n - 1}) = b^n$.
 \end{proposition}
 \begin{proof}
- We define $h$ such that it maps $(d,v,e)$ to $h(d,v,e) = d' v' e'$
-where $v' = (v^\omega)_{|n - m}$ is the word $v v v\dots$ truncated at
-length $n - m$ for $m = \size{d} + \size{e}$ and the words $d'$ and $e'$
-are defined as follows: First, $d' = \epsilon$ if $d = \star$ and
-otherwise $d' = d b$ for the unique $b \in \Sigma$ with $b \neq
-\last{v}$ if $d \in \Sigma^*$. Similarly we set $e' = \epsilon$ if $e =
-\star$ and otherwise, if $e \in \Sigma^*$, we set $e' = b e$ for the
+ We define $h$ such that it maps $(d,v,e)$ to $h(d,v,e) = d^+ v^+ e^+$
+where $v^+ = (v^\omega)_{|n - m}$ is the word $v v v\dots$ truncated at
+length $n - m$ for $m = \size{d} + \size{e}$ and the words $d^+$ and $e^+$
+are defined as follows: First, $d^+ = \epsilon$ if $d = \star$ and
+otherwise $d^+ = d b$ for the unique $b \in \Sigma$ with $b \neq
+\last{v}$ if $d \in \Sigma^*$. Similarly we set $e^+ = \epsilon$ if $e =
+\star$ and otherwise, if $e \in \Sigma^*$, we set $e^+ = b e$ for the
 unique $b \in \Sigma$ with $b \neq \first{v}$.
+
+It is easy to see that $h(\star,v,\star) = v
+\dots$ for all $v \in C(W)$ and that $h(\star,w,b^{n - 1}) = b^n$. To
+check that $h$ is an homomorphism consider an edge $(d,v,e)
+\rightarrow_a (d',v',e')$ in $L_n(w)$. We have to consider all the cases in
+the definition of the relations in $L_n(w)$. The cases where $d = a u$
+are obvious.
 
 \texttt{check that this is indeed a homomorphism!}
 \end{proof}
