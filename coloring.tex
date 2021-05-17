@@ -3,12 +3,14 @@
 \usepackage{amsthm}
 
 \newcommand{\any}{{*}}
+\newcommand{\size}[1]{{|{#1}|_s}}
 
 \usepackage{tikz}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
 
 
 \title{Coloring de Bruijn graphs}
@@ -21,12 +23,17 @@
 
 \section{Notation}
 
+Let $\Sigma = \{0,1\}$.
+
 If a length $k$ is obvious from the context we write $w\dots$ for $w \in
-\{0,1\}^+$ for the word $w w w w w w w w w w w w \dots$ truncated to
+\Sigma^+$ for the word $w w w w w w w w w w w w \dots$ truncated to
 length $k$. Usually, the length of $w$ will be smaller than $k$.
 
 We write $s \rightarrow_i t$ for $i \in \{0,1\}$ if in the pattern there
 is an $i$-edge from $s$ to $t$.
+
+
+\section{$n$-$m$-patterns}
 
 We assume that the pattern is such that every node has either just
 outgoing $0$-edges or just outgoing $1$-edges. Then call a node a
@@ -43,7 +50,7 @@ is a $n$-$m$ coloring such that $h(0\dots) \rightarrow_0 c$ and
 $h(1\dots) \rightarrow_1 d$ for all $0$-nodes $c$ and $1$-nodes $d$ in
 the image of $h$.
 
-\section{$n$-$1$ colors}
+\subsection{$n$-$1$ colors}
 
 \begin{lemma} \label{l:path to other loop}
  If $h$ is a $n$-$1$ coloring of $T_k$ then there are colors
@@ -101,7 +108,7 @@ To check that this is a homomorphism we use Lemmas \ref{l:path to
 other loop}~and~\ref{l:loop sees all}.
 \end{proof}
 
-\section{$2$-$2$ colors}
+\subsection{$2$-$2$ colors}
 
 The following is a $2$-$2$ pattern that colors $T_3$ but not $T_2$:
 \begin{center}
@@ -218,7 +225,7 @@ and for the more difficult edges one uses Lemmas \ref{reachability
 lemma}~and~\ref{between lemma}.
 \end{proof}
 
-\section{$\hat{n}$-$2$ colorings}
+\subsection{$\hat{n}$-$2$ colorings}
 
 \begin{lemma} \label{hat one}
  If $h$ is a $n$-$2$ coloring of $T_k$ then there are colors $a$
@@ -287,9 +294,9 @@ the reader to check that this defines a homomorphism.
 \end{proof}
 
 
-\section{$\hat{n}$-$\hat{3}$ colorings}
+\subsection{$\hat{n}$-$\hat{3}$ colorings}
 
-As in the previous section we can prove the following lemmas:
+As in the previous subsection we can prove the following lemmas:
 \begin{lemma} \label{three zero}
  If $h$ is a $n$-$3$ coloring of $T_k$ then there are colors $a_1$,
 $u_2$, $a_3$ and $u_4$ in the image of $h$ such that
@@ -341,104 +348,69 @@ that this defines a homomorphism.
 \end{proof}
 
 
-\section{$\hat{n}$-$\hat{m}$ colorings}
+\subsection{$\hat{n}$-$\hat{m}$ colorings}
 
-An easy generalization of what we do in the previous two sections shows
+An easy generalization of what we do in the previous two subsections shows
 that $T_{2m}$ suffices for $\hat{n}$-$\hat{m}$ colorings.
 
-\section{$2$-$2$-$2$ colorings}
 
+\section{3 colors}
+
+\subsection{Local unfolding}
+
+For any non-empty word $w = a_1,\dots,a_n$ let $C(w) \subseteq \Sigma^n$
+be the set
 \[
-\begin{array}{ll}
-aa & a\dots \\
-bb & b\dots \\
-cc & c\dots \\
-\\
-baa & b(a\dots) \\
-abb & a(b\dots) \\
-caa & c(a\dots) \\
-acc & a(c\dots) \\
-cbb & c(b\dots) \\
-bcc & b(c\dots) \\
-\\
-abab & ab\dots \\
-baba & ba\dots \\
-acac & ac\dots \\
-caca & ca\dots \\
-bcbc & bc\dots \\
-cbcb & cb\dots \\
-\\
-abaa & ba\dots \to b(a\dots) \\
-babb & ab\dots \to a(b\dots) \\
-acaa & ca\dots \to c(a\dots) \\
-cacc & ac\dots \to a(c\dots) \\
-bcbb & cb\dots \to c(b\dots) \\
-cbcc & bc\dots \to b(c\dots) \\
-\\
-abac & ba\dots \to ac\dots \\
-acab & ca\dots \to ab\dots \\
-babc & ab\dots \to bc\dots \\
-bcba & cb\dots \to ba\dots \\
-cacb & ac\dots \to cb\dots \\
-cbca & bc\dots \to ca\dots \\
-\\
-abcb & ab\dots \to bc\dots \\
-acbc & ac\dots \to cb\dots \\
-baca & ba\dots \to ac\dots \\
-bcac & bc\dots \to ca\dots \\
-caba & ca\dots \to ab\dots \\
-cbab & cb\dots \to ba\dots \\
-\\
-abcc & ab(c\dots) \\
-acbb & ac(b\dots) \\
-bacc & ba(c\dots) \\
-bcaa & bc(a\dots) \\
-cabb & ca(b\dots) \\
-cbaa & cb(a\dots) \\
-\end{array}
-\begin{array}{ll}
-abcbc & a(bc\dots) \\
-acbcb & a(cb\dots) \\
-bacac & b(ac\dots) \\
-bcaca & b(ca\dots) \\
-cabab & c(ab\dots) \\
-cbaba & c(ba\dots) \\
-\\
-abcabc & abc\dots \\
-bcabca & bca\dots \\
-cabcab & cab\dots \\
-acbacb & acb\dots \\
-cbacba & cba\dots \\
-bacbac & bac\dots \\
-\\
-abcabb & cab\dots \to ca(b\dots) \\
-acbacc & bac\dots \to ba(c\dots) \\
-bacbaa & cba\dots \to cb(a\dots) \\
-bcabcc & abc\dots \to ab(c\dots) \\
-cabcaa & bca\dots \to bc(a\dots) \\
-cbacbb & acb\dots \to ac(b\dots) \\
-\\
-cabcc & abc\dots \to ab(c\dots) \\
-bacbb & acb\dots \to ac(b\dots) \\
-cbacc & bac\dots \to ba(c\dots) \\
-abcaa & bca\dots \to bc(a\dots) \\
-bcabb & cab\dots \to ca(b\dots) \\
-acbaa & cba\dots \to cb(a\dots) \\
-\\
-abcaba & cab\dots \to c(ab\dots) \\
-acbaca & bac\dots \to b(ac\dots) \\
-bacbab & cba\dots \to c(ba\dots) \\
-bcabcb & abc\dots \to a(bc\dots) \\
-cabcac & bca\dots \to b(ca\dots) \\
-cbacbc & acb\dots \to a(cb\dots) \\
-\\
-abcaca & bca\dots \to b(ca\dots) \\
-acbaba & cba\dots \to c(ba\dots) \\
-bacbcb & acb\dots \to a(cb\dots) \\
-bcabab & cab\dots \to c(ab\dots) \\
-cabcbc & abc\dots \to a(bc\dots) \\
-cbacac & bac\dots \to b(ac\dots) \\
-\end{array}
+ C(w) = \{a_1 a_2 \dots a_n, a_2 \dots a_n a_1, \dots, a_n a_1, a_2,
+\dots a_{n - 1}\} = \{u v \mid v u = w\}.
 \]
+
+\begin{definition}
+ Let $D = \Sigma^* + 1$ be the set that contains all words over $\Sigma$
+plus one special element $\star$ that is distinct from all words. For
+any $d \in D$ define its size $\size{d} \in \omega$ such that
+$\size{\star} = 0$ and $\size{d} = n + 1$ if $d \in \Sigma^*$ is a word
+$d = a_1, \dots, a_n$ of length $n$.
+
+
+ Given a non-empty word $w$ we define the \emph{local unfolding}
+$L_n(w)$ at $w$ of depth $n$ as follows: The domain of $L_n(w)$ is the
+set
+\[
+ \{(d,v,e) \in D \times C(w) \times D \mid \size{d} + \size{e} \leq n\}.
+\]
+
+The relations $\rightarrow_0$ and $\rightarrow_1$ are defined such that
+$(d,v,e) \rightarrow_a (d',v',e')$ holds iff one of the following is the
+case:
+\begin{enumerate}
+ \item $d = \star$, $d' = \star$, $v = a u$ for some $u \in \Sigma^*$,
+$v' = u a$, $e = \star$ and $e' = \star$;
+ \item $d = \star$, $d' = \star$, $v = a u$ for some $u \in \Sigma^*$,
+$v' = u a$, $e = \star$ and $e' = \varepsilon$;
+ \item $d = \star$, $d' = \star$, $v = a u$ for some $u \in \Sigma^*$,
+$v' = u a$, $e \in \Sigma^*$ and $e' = e b$ for some $b \in \Sigma$;
+ \item $d = \epsilon$, $d' = \star$, $a \neq \mathsf{last}(v)$, $v =
+v'$, $e = \star$ and $e' = \star$;
+ \item $d = \epsilon$, $d' = \star$, $a \neq \mathsf{last}(v)$, $v =
+v'$, $e = \star$ and $e' = \epsilon$;
+ \item $d = \epsilon$, $d' = \star$, $a \neq \mathsf{last}(v)$, $v =
+v'$, $e \in \Sigma^*$ and $e' = e b$ for some $b \in \Sigma$;
+ \item $d = a u$ for $u \in \Sigma^*$, $d' = u$, $v = v'$, $e = \star$
+and $e' = \star$;
+ \item $d = a u$ for $u \in \Sigma^*$, $d' = u$, $v = v'$, $e = \star$
+and $e' = \epsilon$; or
+ \item $d = a u$ for $u \in \Sigma^*$, $d' = u$, $v = v'$, $e \in
+\Sigma^*$ and $e' = e b$ for some $b \in \Sigma$.
+\end{enumerate}
+\end{definition}
+
+\texttt{Give some pictures of $L_3(1)$ and $L_2(01)$.}
+
+\begin{proposition}
+ Let $n > 0$, $w = v a$ and $b \neq a$. Then there is a homomorphism $h$
+from $L_n(w)$ to $T_n$ such that $h(\star,w,b^{n - 1}) = b^n$.
+\end{proposition}
+
 
 \end{document}
