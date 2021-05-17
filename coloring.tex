@@ -27,6 +27,10 @@
 
 Let $\Sigma = \{0,1\}$.
 
+Given a non-empty world $w = a u = v b$ for $a,b \in \Sigma$ and $u,v
+\in \Sigma^*$ we write $\first{w} = a$ and $\last{w} = b$ for its first
+and last letters.
+
 If a length $k$ is obvious from the context we write $w\dots$ for $w \in
 \Sigma^+$ for the word $w w w w w w w w w w w w \dots$ truncated to
 length $k$. Usually, the length of $w$ will be smaller than $k$.
@@ -421,8 +425,8 @@ length $n - m$ for $m = \size{d} + \size{e}$ and the words $d'$ and $e'$
 are defined as follows: First, $d' = \epsilon$ if $d = \star$ and
 otherwise $d' = d b$ for the unique $b \in \Sigma$ with $b \neq
 \last{v}$ if $d \in \Sigma^*$. Similarly we set $e' = \epsilon$ if $e =
-\star$ and otherwise $e' = b e$ for the unique $b \in \Sigma$ with $b
-\neq \first{v}$ if $d \in \Sigma^*$.
+\star$ and otherwise, if $e \in \Sigma^*$, we set $e' = b e$ for the
+unique $b \in \Sigma$ with $b \neq \first{v}$.
 
 \texttt{check that this is indeed a homomorphism!}
 \end{proof}
