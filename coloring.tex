@@ -6,6 +6,7 @@
 \newcommand{\size}[1]{{|{#1}|_s}}
 \newcommand{\first}[1]{\mathsf{first}({#1})}
 \newcommand{\last}[1]{\mathsf{last}({#1})}
+\newcommand{\subpatterns}{\mathcal{S}}
 
 \usepackage{tikz}
 
@@ -439,5 +440,97 @@ We leave it to the reader to check that $h$ defines a homomorphism.
 %and the first bit of \dots
 \end{proof}
 
+
+\subsection{Relevant subgraphs}
+
+Let $\subpatterns_2 = \{T_0,T_1\}$. The following is not hard to show:
+\begin{theorem}
+ If $P$ is a pattern with two colors and $T_k \to P$ for some $k$ then
+$P$ contains an element of $\subpatterns_2$ as subgraph.
+\end{theorem}
+
+\begin{figure}
+\begin{center}
+\begin{tabular}{cc}
+\begin{tikzpicture}
+ \node (label) at (-0.5,1) {$F_l$:};
+ \node (a) at (0,0) {$a$};
+ \node (c) at (2,0) {$c$};
+ \node (b) at (4,0)  {$b$};
+
+ \draw [->] (a) edge [loop left] node[left] {$0$} (a);
+ \draw [->] (b) edge [loop right] node[right] {$1$} (a);
+
+ \draw [->] (b) edge node[below] {$1$} (c);
+
+ \draw [->] (a) edge [bend left=60] node[above] {$0$} (b);
+ \draw [->] (a) edge [bend left=20] node[above] {$0$} (c);
+ \draw [->] (c) edge [bend left=20] node[below] {$1$} (a);
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+ \node (label) at (-0.5,1) {$F_r$:};
+ \node (a) at (0,0) {$a$};
+ \node (c) at (2,0) {$c$};
+ \node (b) at (4,0)  {$b$};
+
+ \draw [->] (a) edge [loop left] node[left] {$0$} (a);
+ \draw [->] (b) edge [loop right] node[right] {$1$} (a);
+
+ \draw [->] (a) edge node[above] {$0$} (c);
+
+ \draw [->] (b) edge [bend left=60] node[below] {$1$} (a);
+ \draw [->] (b) edge [bend left=20] node[below] {$1$} (c);
+ \draw [->] (c) edge [bend left=20] node[above] {$0$} (b);
+\end{tikzpicture}
+\\
+\\
+\begin{tikzpicture}
+ \node (label) at (-0.5,1) {$G_l$:};
+ \node (a) at (0,0) {$a$};
+ \node (c) at (2,0) {$c$};
+ \node (b) at (4,0)  {$b$};
+
+ \draw [->] (a) edge [loop left] node[left] {$0$} (a);
+ \draw [->] (b) edge [loop right] node[right] {$1$} (a);
+
+ \draw [->] (c) edge node[above] {$0$} (b);
+
+ \draw [->] (b) edge [bend left=60] node[below] {$1$} (a);
+ \draw [<->] (a) edge [bend left=20] node[above] {$0$} (c);
+ \draw [->] (a) edge [bend right=20] node[below] {$1$} (c);
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+ \node (label) at (-0.5,1) {$G_r$:};
+ \node (a) at (0,0) {$a$};
+ \node (c) at (2,0) {$c$};
+ \node (b) at (4,0)  {$b$};
+
+ \draw [->] (a) edge [loop left] node[left] {$0$} (a);
+ \draw [->] (b) edge [loop right] node[right] {$1$} (a);
+
+ \draw [->] (c) edge node[below] {$1$} (a);
+
+ \draw [->] (a) edge [bend left=60] node[above] {$0$} (b);
+ \draw [<->] (b) edge [bend left=20] node[below] {$1$} (c);
+ \draw [->] (b) edge [bend right=20] node[above] {$0$} (c);
+\end{tikzpicture}
+\end{tabular}
+\end{center}
+ \caption{The patterns $F_l$, $F_r$, $G_l$ and $G_r$}
+\label{fig:fs and gs}
+\end{figure}
+
+Let $\subpatterns_3 = \subpatterns_2 \cup \{F_l,F_r,G_l,G_r\}$ where
+$F_l$, $F_r$, $G_l$ and $G_r$ are given in Figure~\ref{fig:fs and gs}. The
+remainder of this subsection contains a proof of the following:
+\begin{theorem}
+ If $P$ is a pattern with three colors and $T_k \to P$ for some $k$ then
+$P$ contains an element of $\subpatterns_3$ as subgraph.
+\end{theorem}
+Because each of the elements of $\subpatterns_3$ is a homomorphic image
+of $T_3$ it follows that if $P$ is a pattern with three colors and $T_k
+\to P$ for some $k$ then $T_3 \to P$.
 
 \end{document}
