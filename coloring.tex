@@ -1,5 +1,6 @@
 \documentclass[a4paper]{article}
 
+\usepackage{amsmath}
 \usepackage{amsthm}
 
 \newcommand{\any}{{*}}
@@ -542,6 +543,18 @@ for some $n$. We write $C(w)$ for the set of all worlds $v$ that are
 cyclin in $w$.
 \end{definition}
 
+Examples:
+\begin{align*}
+ C(0000) & = \{0,00,000,0000,00000,00001,000000,000001,\dots\} \\
+ C(0101) & = \{01,0101,01010,01011,\dots\} \\
+ C(00100) & = \{001,0010,00100,001000,001001,\dots\} \\
+ C(001000) & = \{0010,00100,001000,0010000,0010001\dots\} \\
+ C(010110101) & =
+\{01011,010110,0101101,01011010,010110101,0101101010,0101101011,\dots\}
+\\
+ C(0010010) & = \{001,001001,0010010,00100100,00100101,\dots\}
+\end{align*}
+
 \begin{lemma}
  If $v$ and $u$ are cycling in $w$ and $2 \cdot \max(|v|,|u|) \leq |w|$
 then there is an $x \in \Sigma^*$ and $n,m \in \omega$ such that $v =
@@ -554,11 +567,20 @@ Without loss of generality we can assume that $|v| < |u|$. If $|v| =
 we can give a symmetric argument as we give below for the case where
 $|v| < |u|$.
 
+ We can also assume that $|u|$ is not a multiple of $|v|$ because
+otherwise it follows from $|v| \leq |w|$ and $u,v \in C(w)$ that $u =
+v^k$ for some $k \in \omega$ and we can take $x = v$.
+
 Let $d$ be the greatest common divisor of $|v|$ and $|u|$. This means
-that there are $v_1,\dots,v_n$ with $|v_1|
-= \dots = |v_n| = d$ such that $v = v_1 \cdots v_n$ and similarly there
-are $u_1,\dots,u_m$ with $|u_1| = \dots = |u_m| = d$ such that
-$u = u_1 \cdots u_m$.
+that there are $v_1,\dots,v_n$ with $|v_1| = \dots = |v_n| = d$ such
+that $v = v_1 \cdots v_n$ and similarly there are $u_1,\dots,u_m$ with
+$|u_1| = \dots = |u_m| = d$ such that $u = u_1 \cdots u_m$.
+
+We first show that $v_1 = \dots = v_n$.
+Observe that $v$ is a prefix of $u$ because both words are cycling
+in $w$ and $|v| < |u| \leq |w|$.
+
+This is a little complicated!
 \end{proof}
 
 \end{document}
