@@ -533,4 +533,32 @@ Because each of the elements of $\subpatterns_3$ is a homomorphic image
 of $T_3$ it follows that if $P$ is a pattern with three colors and $T_k
 \to P$ for some $k$ then $T_3 \to P$.
 
+
+\section{About words}
+
+\begin{definition}
+ A word $v$ is \emph{cycling} in a word $w$ if $w$ is a prefix of $v^n$
+for some $n$. We write $C(w)$ for the set of all worlds $v$ that are
+cyclin in $w$.
+\end{definition}
+
+\begin{lemma}
+ If $v$ and $u$ are cycling in $w$ and $2 \cdot \max(|v|,|u|) \leq |w|$
+then there is an $x \in \Sigma^*$ and $n,m \in \omega$ such that $v =
+x^n$ and $u = x^m$.
+\end{lemma}
+\begin{proof}
+Without loss of generality we can assume that $|v| < |u|$. If $|v| =
+|u|$ then it follows because $v$ and $u$ are cycling  in $w$ and $|v|
+\leq |w|$ that $v = u$ and thus we can take $x = u$. If $|u| < |v|$ then
+we can give a symmetric argument as we give below for the case where
+$|v| < |u|$.
+
+Let $d$ be the greatest common divisor of $|v|$ and $|u|$. This means
+that there are $v_1,\dots,v_n$ with $|v_1|
+= \dots = |v_n| = d$ such that $v = v_1 \cdots v_n$ and similarly there
+are $u_1,\dots,u_m$ with $|u_1| = \dots = |u_m| = d$ such that
+$u = u_1 \cdots u_m$.
+\end{proof}
+
 \end{document}
