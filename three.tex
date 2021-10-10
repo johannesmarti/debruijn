@@ -63,7 +63,7 @@ of these cases:
 closes because we get a homomorphism $g : T_1 \to P, 0 \mapsto a, 1
 \mapsto b$.
 
-\case{2}{$a \rightarrow_0 b,c$ and $b \rightarrow_1 c \rightarrow_1 a$} 
+\case{2}{$a \rightarrow_0 b,c$ and $b \rightarrow_1 c \rightarrow_1 a$}
 In this case we have a homomorphism $g : T_2 \to P, 00,01 \mapsto a, 10
 \mapsto c, 11 \mapsto b$.
 
@@ -76,22 +76,58 @@ a, 1 \mapsto b$.
 This case is symmetric to Case~2.
 
 \case{5}{$a \rightarrow_0 c \rightarrow_0 b$ and $b \rightarrow_1 c
-\rightarrow_1 a$} 
-[open]
+\rightarrow_1 a$}
+We argue that in this case all the assumption of Lemma~\ref{first killer
+lemma} are satisfied. We already know that $a \not \rightarrow_1 a$ and
+$b \not \rightarrow_0 b$. Moreover, $c \not \rightarrow_0 c$ holds
+because otherwise we have the homomorphism $g : T_1 \to P, 0 \mapsto c,
+1 \mapsto b$. A symmetric argument shows that $c \not \rightarrow_1 c$.
+To establish $a \not \rightarrow_0 b$ consider what happens if $a
+\rightarrow_0 b$. Then we can construct the homomorphism $g : T_2 \to P,
+00, 01 \mapsto a, 10 \mapsto c, 11 \mapsto b$. Symmetric reasoning shows
+that $b \not \rightarrow_1 a$.
 
-\case{6}{$a \rightarrow_0 c \rightarrow_0 b$ and $b \rightarrow_1 a \rightarrow_1 c$}
-[open]
+\case{6}{$a \rightarrow_0 c \rightarrow_0 b$ and $b \rightarrow_1 a
+\rightarrow_1 c$}
+We can establish all assumptions of Lemma~\ref{second killer lemma}. We
+already know that $a \not \rightarrow_1 a$ and $b \not \rightarrow_0 b$.
+If $a \rightarrow_0 b$ was true then we would have the homomorphism $T_1
+\top P; 0 \mapsto a, 1 \mapsto b$. If $c \rightarrow_0 a$ was true then
+we would have the homomorphism $T_3 \to P; 000,001,101 \mapsto a;
+010,011 \mapsto c; 100,110,111 \mapsto b$. If $b \rightarrow_1 c$ was
+the twe would get the homomorphism $T_2 \to P; 00 \mapsto a; 01 \mapsto
+c; 10,11 \mapsto b$.
 
 
 \case{7}{$a \rightarrow_0 b \rightarrow_0 c$ and $b \rightarrow_1 a,c$}
 This case is symmetric to Case~3.
 
-\case{8}{$a \rightarrow_0 b \rightarrow_0 c$ and $b \rightarrow_1 c \rightarrow_1 a$} 
+\case{8}{$a \rightarrow_0 b \rightarrow_0 c$ and $b \rightarrow_1 c
+\rightarrow_1 a$}
 This case is symmetric to Case~6.
 
 \case{9}{$a \rightarrow_0 b \rightarrow_0 c$ and $b \rightarrow_1 a
 \rightarrow_1 c$} This case closes because we get a homomorphism $g :
 T_1 \to P, 0 \mapsto a, 1 \mapsto b$.
+
+\section{Killer induction}
+
+\begin{lemma} \label{first killer lemma}
+ Assume $P$ has three elments $a$, $b$ and $c$ such that $a \not
+\rightarrow_1 a$, $b \not \rightarrow_0 b$, $c \not \rightarrow_0 c$,
+$c \not \rightarrow_1 c$, $a \not \rightarrow_0 b$ and $b \not
+\rightarrow_1 c$. Then there is no $k$ such that $T_k \to P$.
+\end{lemma}
+\begin{proof}
+ Assume for a contradiction that $h : T_k \to P$.
+\end{proof}
+
+\begin{lemma} \label{second killer lemma}
+ Assume $P$ has three elments $a$, $b$ and $c$ such that $a \not
+\rightarrow_1 a$, $b \not \rightarrow_0 b$, $a \not \rightarrow_0 b$, $c
+\not \rightarrow_0 a$, and $b \not \rightarrow_1 c$. Then there is no
+$k$ such that $T_k \to P$.
+\end{lemma}
 
 
 
