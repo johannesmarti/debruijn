@@ -95,8 +95,8 @@ If $a \rightarrow_0 b$ was true then we would have the homomorphism $T_1
 \top P; 0 \mapsto a, 1 \mapsto b$. If $c \rightarrow_0 a$ was true then
 we would have the homomorphism $T_3 \to P; 000,001,101 \mapsto a;
 010,011 \mapsto c; 100,110,111 \mapsto b$. If $b \rightarrow_1 c$ was
-the twe would get the homomorphism $T_2 \to P; 00 \mapsto a; 01 \mapsto
-c; 10,11 \mapsto b$.
+the case then we would get the homomorphism $T_2 \to P; 00 \mapsto a; 01
+\mapsto c; 10,11 \mapsto b$.
 
 
 \case{7}{$a \rightarrow_0 b \rightarrow_0 c$ and $b \rightarrow_1 a,c$}
@@ -113,17 +113,52 @@ T_1 \to P, 0 \mapsto a, 1 \mapsto b$.
 \section{Killer induction}
 
 \begin{lemma} \label{first killer lemma}
- Assume $P$ has three elments $a$, $b$ and $c$ such that $a \not
+ Assume $P$ has three elements $a$, $b$ and $c$ such that $a \not
 \rightarrow_1 a$, $b \not \rightarrow_0 b$, $c \not \rightarrow_0 c$,
 $c \not \rightarrow_1 c$, $a \not \rightarrow_0 b$ and $b \not
 \rightarrow_1 c$. Then there is no $k$ such that $T_k \to P$.
 \end{lemma}
 \begin{proof}
  Assume for a contradiction that $h : T_k \to P$.
+
+Clearly, $h(0^\omega) = a$.
+
+Note first that the only $1$-predecessor of $a$ is $c$, the only
+$0$-predecessor of $b$ is $c$ and \dots
+
+We prove with an induction over $m$ that
+\begin{enumerate}
+ \item \label{first item} $\forall a_0 \exists x_0 \forall a_1 \dots
+\exists x_{m - 1} \forall a_m \  h(a_m x_{m - 1} \dots a_1 x_0 a_0 1
+0^\omega) \in \{a, b\}$, and
+ \item \label{second item} $\forall a_0 \exists x_0 \forall a_1 \dots
+\forall a_m \exists x_m \  h(x_m a_m \dots a_1 x_0 a_0 1 0^\omega) = c$.
+\end{enumerate}
+For the base case observe first that $h(10^\omega) = c$ because
+$h(10^\omega) \rightarrow_1 h(0^\omega)$. The first part of the claim
+then follows because $c$ is neither a $0$ nor a $1$ predecessor of $c$.
+Thus, $h(a_0 1 0^\omega) \in \{a, b\}$ for both $a_0 \in \{0,1\}$. The
+second part then holds because if $h(a_0 1 0^\omega) = a$ then its
+$1$-predecessor needs to be $c$ and if on the other hand $h(a_0 1
+0^\omega) = b$ then its $0$-predecessor needs to be $c$.
+
+[The inductive step is like the base case.]
+
+We then show that for all $m$ and $i \leq m$ and all $b_1,\dots,b_{2i}$
+\begin{enumerate}
+ \item \label{first power item} $\forall a_0 \exists x_0 \forall a_1 \dots
+\exists x_{m - i - 1} \forall a_{m - i} \  h(a_{m - i} x_{m - i - 1}
+\dots a_1 x_0 a_0 1 0^\omega 1 b_1\dots b_{2i - 1}) \in \{a, b\}$, and
+ \item \label{second power item} $\forall a_0 \exists x_0 \forall a_1
+\dots \forall a_{m - i} \exists x_{m - i} \  h(x_{m - i} a_{m - i} \dots
+a_1 x_0 a_0 1 0^\omega 1 b_1 \dots b_{2i}) = c$.
+\end{enumerate}
+
+
 \end{proof}
 
 \begin{lemma} \label{second killer lemma}
- Assume $P$ has three elments $a$, $b$ and $c$ such that $a \not
+ Assume $P$ has three elements $a$, $b$ and $c$ such that $a \not
 \rightarrow_1 a$, $b \not \rightarrow_0 b$, $a \not \rightarrow_0 b$, $c
 \not \rightarrow_0 a$, and $b \not \rightarrow_1 c$. Then there is no
 $k$ such that $T_k \to P$.
