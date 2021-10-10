@@ -53,49 +53,46 @@ b$.
 
 Note then that there is a $0$-path from $a$ to any other node in $P$ and
 there is a $1$-path from $b$ to any other node in $P$. This means that
-either $a \rightarrow_0 b,c$, $a \rightarrow_0 c \righarrow_0 b$ or $a
-\righarrow_0 b \rightarrow_0 c$. Similarly, we have that either $b
-\rightarrow_1 a,c$, $b \rightarrow_1 c \righarrow_1 a$ or $b
-\righarrow_1 a \rightarrow_1 c$. Distinguish all possible combinations
+either $a \rightarrow_0 b,c$, $a \rightarrow_0 c \rightarrow_0 b$ or $a
+\rightarrow_0 b \rightarrow_0 c$. Similarly, we have that either $b
+\rightarrow_1 a,c$, $b \rightarrow_1 c \rightarrow_1 a$ or $b
+\rightarrow_1 a \rightarrow_1 c$. Distinguish all possible combinations
 of these cases:
 
 \case{1}{$a \rightarrow_0 b,c$ and $b \rightarrow_1 a,c$} This case
 closes because we get a homomorphism $g : T_1 \to P, 0 \mapsto a, 1
 \mapsto b$.
 
+\case{2}{$a \rightarrow_0 b,c$ and $b \rightarrow_1 c \rightarrow_1 a$} 
+In this case we have a homomorphism $g : T_2 \to P, 00,01 \mapsto a, 10
+\mapsto c, 11 \mapsto b$.
 
-\section{Case distinctions}
+\case{3}{$a \rightarrow_0 b,c$ and $b \rightarrow_1 a \rightarrow_1 c$}
+This case closes because we get a homomorphism $g : T_1 \to P, 0 \mapsto
+a, 1 \mapsto b$.
 
-Let $P$ some pattern with three elements. Assume that there is a
-homomorphism $h : T_k \to P$.
 
-Let $a = h(0^\omega)$ and $b = h(1^\omega)$. Then $a \rightarrow_0 a$
-and $b \rightarrow_1 b$. Note that $a \neq b$ because otherwise we have
-a homomorphism $g : T_0 \to P, \star \mapsto a=b$. Let $c$ be the third
-element of $P$ that is distinct from both $a$ and $b$. For a similar
-reason we have that $a \not \rightarrow_1 a$ and $b \not \rightarrow_0
-b$.
+\case{4}{$a \rightarrow_0 c \rightarrow_0 b$ and $b \rightarrow_1 a,c$}
+This case is symmetric to Case~2.
 
-Consider then $h((01)^\omega)$ and $h((10)^\omega)$, with
-$h((01)^\omega) \rightarrow_0 h((10)^\omega)$ and $h((10)^\omega)
-\rightarrow_1 h((01)^\omega)$. We have that $h((01)^\omega) \neq
-h((10)^\omega)$ because otherwise there would be a homomorphism from
-$T_0$. We then consider all the cases how $h((01)^\omega)$ and
-$h((10)^\omega)$ can distribute over $a$, $b$ and $c$.
+\case{5}{$a \rightarrow_0 c \rightarrow_0 b$ and $b \rightarrow_1 c
+\rightarrow_1 a$} 
+[open]
 
-\case{1}{$a = h((01)^\omega)$ and $b = h((10)^\omega)$} This case closes
-because we get a homomorphism $g : T_1 \to P, 0 \mapsto a, 1 \mapsto b$.
+\case{6}{$a \rightarrow_0 c \rightarrow_0 b$ and $b \rightarrow_1 a \rightarrow_1 c$}
+[open]
 
-\case{2}{$b = h((01)^\omega)$ and $a = h((10)^\omega)$}
 
-\case{3}{$a = h((01)^\omega)$ and $c = h((10)^\omega)$}
+\case{7}{$a \rightarrow_0 b \rightarrow_0 c$ and $b \rightarrow_1 a,c$}
+This case is symmetric to Case~3.
 
-\case{4}{$c = h((01)^\omega)$ and $a = h((10)^\omega)$}
+\case{8}{$a \rightarrow_0 b \rightarrow_0 c$ and $b \rightarrow_1 c \rightarrow_1 a$} 
+This case is symmetric to Case~6.
 
-\case{5}{$b = h((01)^\omega)$ and $c = h((10)^\omega)$} This case is
-symmetric to Case~4.
+\case{9}{$a \rightarrow_0 b \rightarrow_0 c$ and $b \rightarrow_1 a
+\rightarrow_1 c$} This case closes because we get a homomorphism $g :
+T_1 \to P, 0 \mapsto a, 1 \mapsto b$.
 
-\case{6}{$c = h((01)^\omega)$ and $b = h((10)^\omega)$} This case is
-symmetric to Case~3.
+
 
 \end{document}
