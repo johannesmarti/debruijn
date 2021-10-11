@@ -175,21 +175,103 @@ $0$-predecessor of $b$.
 
 \medskip
 
-We then show that for all $n \geq 1$, $i$ with $1 \leq i \leq n$ and all $b_2,\dots,b_i$
+We then show that for all $n$, $i \leq n$ and all $b_1,\dots,b_i$
 \begin{itemize}
- \item if $n - i$ is even then $\forall a_1 \exists x_2 \dots \exists
-x_{n - i - 1} \forall a_{n - i} \  h(a_{n - i} x_{n - i - 1} \dots x_2
-a_1 1 0^\omega 1 b_2 \dots b_i) = c$, and
+ \item if $n - i$ is even then $\forall a_1 \exists x_2 \dots \forall
+a_{n - i - 1} \exists e_{n - i} \  h(e_{n - i} a_{n - i - 1} \dots x_2
+a_1 1 0^\omega b_1 \dots b_i) = c$, and
  \item if $n - i$ is odd then $\forall a_1 \exists x_2 
-\dots \forall a_{n - i - 1} \exists x_{n - i} \
-h(x_{n - i} a_{n - i - 1} \dots
-x_2 a_1 1 0^\omega 1 b_2 \dots b_i) \in \{a,b\}$.
+\dots \exists x_{n - i - 1} \forall a_{n - i} \
+h(a_{n - i} x_{n - i - 1} \dots
+x_2 a_1 1 0^\omega b_1 \dots b_i) \in \{a,b\}$.
 \end{itemize}
-To prove this fix an arbitrary $n$ then do an induction over $i \leq n$.
-The base case where $i = 0$ is precesely the claim from the previous
-induction.
+To prove this, fix an arbitrary $n$ and then do an induction over $i
+\leq n$. The base case where $i = 0$ is precisely the claim from the
+previous induction. In the inductive step we assume the claim holds for
+$i$ and distinguish cases depending on whether $n - i$ is even or odd.
 
+If $n - i$ is even then we have as inductive assumption that for all
+$b_1,\dots,b_i$
+\[
+ \forall a_1 \exists x_2 \dots \forall a_{n - i - 1} \exists e_{n - i} \
+h(e_{n - i} a_{n - i - 1} \dots x_2 a_1 1 0^\omega b_1 \dots b_i) = c.
+\]
+We show that for all $b_1,\dots,b_i,b_{i + 1}$
+\[
+ \forall a_1 \exists x_2 \dots \exists x_{n - i - 2} \forall a_{n - i -
+1} \ h(a_{n - i - 1} x_{n - i - 2} \dots x_2 a_1 1 0^\omega b_1 \dots
+b_i b_{i + 1}) \in \{a,b\}.
+\]
+To this aim fix $b_1,\dots,b_i,b_{i + 1}$. By the inductive hypothesis
+we have that for all $a_1$ there is a $x_2$ such that \dots there is
+$x_{n - i - 2}$ such that for all $a_{n - i - 1}$ we have $\exists e_{n
+- i} \ h(e_{n - i} a_{n - i - 1} \dots x_2 a_1 1 0^\omega b_1 \dots b_i)
+  = c$. This means that the $e_{n - i}$-predecessor of $a_{n - i - 1}
+x_{n - i - 2} \dots x_2 a_1 1 0^\omega b_1 \dots b_i b_{i + 1}$ maps to
+$c$. Because $c \not \rightarrow_{e_{n - i}} c$ it follows that $h(a_{n
+- i - 1} x_{n - i - 2} \dots x_2 a_1 1 0^\omega b_1 \dots b_i b_{i + 1})
+\in \{a,b\}$.
 
+If $n - i$ is odd then we have as inductive assumption that for all
+$b_1,\dots,b_i$
+\[
+ \forall a_1 \exists x_2 
+\dots \exists x_{n - i - 1} \forall a_{n - i} \
+h(a_{n - i} x_{n - i - 1} \dots
+x_2 a_1 1 0^\omega b_1 \dots b_i) \in \{a,b\}.
+\]
+We show that for all $b_1,\dots,b_i,b_{i + 1}$
+\[
+ \forall a_1 \exists x_2 \dots \forall a_{n - i - 2} \exists x_{n - i -
+1} \ h(e_{n - i - 1} a_{n - i - 2} \dots x_2 a_1 1 0^\omega b_1 \dots
+b_i b_{i + 1}) = c.
+\]
+To this aim fix $b_1,\dots,b_i,b_{i + 1}$. By the inductive hypothesis
+we have that for all $a_1$ there is a $x_2$ such that \dots there is
+$x_{n - i - 2}$ such that for all $a_{n - i - 1}$ we have $\forall a_{n
+- i} \ h(a_{n - i} e_{n - i - 1} \dots x_2 a_1 1 0^\omega b_1 \dots b_i)
+  \in \{a,b\}$. This means that both predecessors of $x_{n - i - 1} a_{n
+- i - 2} \dots x_2 a_1 1 0^\omega b_1 \dots b_i b_{i + 1}$ map to either
+$a$ or $b$, but not to $c$. It follows that $h(a_{n - i - 1} x_{n - i -
+2} \dots x_2 a_1 1 0^\omega b_1 \dots b_i b_{i + 1}) = c$, because $a$
+has no $1$ predecessor among $\{a,b\}$ and $b$ has no $0$-predecessor
+among $\{a, b\}$.
+
+\medskip
+
+We finally show that for all $n$ and $b_1,\dots,b_n$
+\[
+ h(0^\omega b_1,\dots b_n) = a.
+\]
+The base case where $n = 0$ holds because $h(0^\omega) = a$.
+In the inductive step we assume that for all $b_1,\dots,b_n$
+\[
+ h(0^\omega b_1,\dots b_n) = a.
+\]
+We choose $b_1,\dots,b_n,b_{n + 1}$ and need to show that
+\[
+ h(0^\omega b_1,\dots b_n b_{n + 1}) = a.
+\]
+We can think of the inductive hypothesis as telling us that the
+$0$-predecessor of $0^\omega b_1,\dots b_n b_{n + 1}$ has color $a$.
+From the previous induction for the case where the $n$ from the
+statement of the previous induction is the same as our current $n$ and
+the $i$ from the statement of the previous induction is also $n$ we get
+that
+\[
+ h(1 0^\omega b_1,\dots b_n) = c.
+\]
+This tells us that the $1$-predecessor of $0^\omega b_1,\dots b_n b_{n +
+1}$ has color $c$. It follows that $0^\omega b_1,\dots b_n b_{n +
+1}$ has color $a$ because $a \not \rightarrow_0 c$ and $c \not
+\rightarrow_1 c$.
+
+\medskip
+
+We have shown that all nodes that are reachable over a $0$-path from
+$0^\omega$ need to have color $a$. But since all nodes in $T_k$ are
+reachable by such a path we have a contradiction because there is some
+node in $T_k$, for instance $1^\omega$, that can not have color $a$.
 \end{proof}
 
 \begin{lemma} \label{second killer lemma}
