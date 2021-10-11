@@ -275,14 +275,14 @@ node in $T_k$, for instance $1^\omega$, that can not have color $a$.
 \end{proof}
 
 
-\section{Narrow pipes}
+\section{Construction deterministic patterns}
 
 Every pattern gives rise to a relation $Q(P) \subseteq (P \times P)
 \times P$ such that $((a_0,a_1),c) \in Q(P)$ iff $a_0 \rightarrow_0 c$
 and $a_1 \rightarrow_1 c$. The relation $Q(P)$ is the \emph{construction
 relation} of $P$.
 
-The pattern $P$ is a \emph{narrow pipe} if $Q(P)$ is functional.
+The pattern $P$ is \emph{construction deterministic} if $Q(P)$ is functional.
 
 A surjective function $f : P \to P'$ is \emph{compatible} with the
 construction relation iff for all $x$ and $y$ with $f(x) = f(y)$ it
@@ -290,14 +290,16 @@ holds that $((x,b),c) \in Q(P)$ iff $((y,b),c) \in Q(P)$, and $((a,x),c)
 \in Q(P)$ iff $((a,x),c) \in Q(P)$.
 
 Let $f : P \to P'$ be a surjective function that is compatible with the
-construction relation of $P$. Then $P$ is an \emph{$f$-narrow pipe} if
-$f(c) = f(c')$ whenever $((a,b),c) \in Q(P)$ and $((a,b),c') \in Q(P)$.
+construction relation of $P$. Then $P$ is \emph{construction
+$f$-deterministic } if $f(c) = f(c')$ whenever $((a,b),c) \in Q(P)$ and
+$((a,b),c') \in Q(P)$.
 
 Note that if $P$ is narrow then it is $\mathsf{id}$-narrow, for the
 identity map $\mathsf{id} : P \to P$.
 
 \begin{lemma} \label{killer lemma}
- If $P$ is an $f$-narrow pipe then there is no $k$ such that $T_k \to P$.
+ If $P$ is construction $f$-deterministic then there is no $k$ such that
+$T_k \to P$.
 \end{lemma}
 
 
