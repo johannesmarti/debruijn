@@ -1,5 +1,7 @@
 \documentclass[a4paper]{article}
 
+\usepackage{a4wide}
+
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -126,53 +128,66 @@ Clearly, $h(0^\omega) = a$.
 Note first that the only $1$-predecessor of $a$ is $c$, the only
 $0$-predecessor of $b$ is $c$ and \dots
 
-We prove with an induction over $m$ that
-\begin{enumerate}
- \item \label{even item} $\forall a_1 \exists x_1 \forall a_2 \dots
-\forall a_m \exists x_m \  h(x_m a_m \dots a_2 x_1 a_1 1 0^\omega) = c$,
-and
- \item \label{odd item} $\forall a_1 \exists x_1 \forall a_2 \dots
-\forall a_m \exists x_m \forall a_{m + 1} \  h(a_{m + 1} x_m a_m \dots
-a_2 x_1 a_1 1 0^\omega) \in \{a, b\}$.
-\end{enumerate}
-For the first case of the base case, where $m = 0$ observe that that
-$h(10^\omega) = c$ because $h(10^\omega) \rightarrow_1 h(0^\omega)$. The
-second part of the base case then follows because $c$ is neither a $0$
-nor a $1$ predecessor of $c$. Thus, $h(a_1 1 0^\omega) \in \{a, b\}$ for
-both $a_1 \in \{0,1\}$.
+\medskip
 
-For the first part of the inductive step, where we prove the claims for
-$m + 1$, observe first that by the inductive hypothesis
+We prove with an induction over $n$ that
+\begin{itemize}
+ \item if $n$ is even then $\forall a_1 \exists x_2 \dots
+\forall a_{n - 1} \exists x_n \  h(x_n a_{n - 1} \dots x_2 a_1 1 0^\omega) = c$,
+and
+ \item if $n$ is odd then $\forall a_1 \exists x_2
+\dots \exists x_{n - 1} \forall a_n \  h(a_n x_{n - 1}\dots
+x_2 a_1 1 0^\omega) \in \{a, b\}$.
+\end{itemize}
+For the base case, where $n = 0$ observe that $h(10^\omega) = c$ because
+$h(10^\omega) \rightarrow_1 h(0^\omega)$. In the inductive step we
+assume that the claim holds for $n$ and distinguish cases depending on
+whether $n$ is even or odd.
+
+If $n$ is even then we have by inductive hypothesis that
 \[
- \forall a_1 \exists x_1 \forall a_2 \dots \forall a_m \exists x_m
-\forall a_{m + 1} \  h(a_{m + 1} x_m a_m \dots a_2 x_1 a_1 1 0^\omega)
-\in \{a, b\}.
+ \forall a_1 \exists x_2 \dots \forall a_{n - 1} \exists x_n \  h(x_n
+a_{n - 1} \dots x_2 a_1 1 0^\omega) = c.
 \]
 It follows that
 \[
- \forall a_1 \exists x_1 \forall a_2 \dots \forall a_m \exists x_m
-\forall a_{m + 1} \exists x_{m + 1} \  h(x_{m + 1} a_{m + 1} x_m a_m
-\dots a_2 x_1 a_1 1 0^\omega) = c,
+ \forall a_1 \exists x_2 \dots \forall a_{n - 1} \exists x_n \forall
+a_{n + 1} \ h(a_{n + 1} x_n
+a_{n - 1} \dots x_2 a_1 1 0^\omega) \in \{a,b\},
 \]
-because if $h(a_{m + 1} x_m a_m \dots a_2 x_1 a_1 1 0^\omega) = a$ then
-its $1$-predecessor needs to be $c$ and if on the other hand $h(a_{m +
-1} x_m a_m \dots a_2 x_1 a_1 1 0^\omega) = b$ then its $0$-predecessor
-needs to be $c$. The second part of the inductive then follows because
-neither $a$ nor $b$ is a $a_{m + 2}$-predecessor of $c$ for both $a_{m +
-2} \in \{0,1\}$.
+because $c$ is is not a $a_{n + 1}$-predecessor of $c$ for either of
+$a_{n + 1} \in \{0,1\}$.
 
-We then show that for all $m$ and $i \leq m$ and all $b_1,\dots,b_{2i}$
-\begin{enumerate}
- \item \label{second power item} $\forall a_1 \exists x_1 \forall a_2
-\dots \exists x_{m - i - 1} \forall a_{m - i} \  h(a_{m - i} x_{m - i - 1} \dots
-a_2 x_1 a_1 1 0^\omega 1) \in \{a,b\}$, and
- \item \label{first power item} $\forall a_1 \exists x_1 \forall a_2
-\dots \exists x_{m - i - 1} \forall a_{m - i} \exists x_{m - i} \
-h(x_{m - i} a_{m - i} x_{m - i - i} \dots
-a_2 x_1 a_1 1 0^\omega 1 b_1 b_{2i - 1}) = c$.
-\end{enumerate}
-To prove this we fix an arbitrary $m$ then then do an induction over $i
-\leq m$.
+If $n$ is odd then we have from the inductive hypothesis that
+\[
+\forall a_1 \exists x_2
+\dots \exists x_{n - 1} \forall a_n \  h(a_n x_{n - 1}\dots
+x_2 a_1 1 0^\omega) \in \{a, b\}.
+\]
+It follows that
+\[
+ \forall a_1 \exists x_2 \dots \exists x_{n - 1} \forall x_n \exists
+x_{n + 1} \ h(e_{n + 1} a_n
+e_{n - 1} \dots x_2 a_1 1 0^\omega) = c,
+\]
+because $c$ is the only $1$-predecessor of $a$ and $c$ is the only
+$0$-predecessor of $b$.
+
+\medskip
+
+We then show that for all $n \geq 1$, $i$ with $1 \leq i \leq n$ and all $b_2,\dots,b_i$
+\begin{itemize}
+ \item if $n - i$ is even then $\forall a_1 \exists x_2 \dots \exists
+x_{n - i - 1} \forall a_{n - i} \  h(a_{n - i} x_{n - i - 1} \dots x_2
+a_1 1 0^\omega 1 b_2 \dots b_i) = c$, and
+ \item if $n - i$ is odd then $\forall a_1 \exists x_2 
+\dots \forall a_{n - i - 1} \exists x_{n - i} \
+h(x_{n - i} a_{n - i - 1} \dots
+x_2 a_1 1 0^\omega 1 b_2 \dots b_i) \in \{a,b\}$.
+\end{itemize}
+To prove this fix an arbitrary $n$ then do an induction over $i \leq n$.
+The base case where $i = 0$ is precesely the claim from the previous
+induction.
 
 
 \end{proof}
