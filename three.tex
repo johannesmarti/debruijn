@@ -101,7 +101,30 @@ have the homomorphism $T_1 \to P; 0 \mapsto a, 1 \mapsto b$. If $c
 \rightarrow_0 a$ was true then we would have the homomorphism $T_3 \to
 P; 000,001,101 \mapsto a; 010,011 \mapsto c; 100,110,111 \mapsto b$. If
 $b \rightarrow_1 c$ was the case then we would get the homomorphism $T_2
-\to P; 00 \mapsto a; 01 \mapsto c; 10,11 \mapsto b$. We distinguish
+\to P; 00 \mapsto a; 01 \mapsto c; 10,11 \mapsto b$.
+
+Observe that $h((01)^\omega) \rightarrow_0 h((10)^\omega)$ and 
+$h((10)^\omega) \rightarrow_1 h((00)^\omega)$. Clearly
+$h((10)^\omega) \neq h((00)^\omega)$ because otherwise we would have a
+coloring of $T_0$. We distinguish cases how $h((10)^\omega)$ and
+$h((00)^\omega)$ distribute over $a$, $b$ and $c$, excluding all options
+that are impossible because of the connections that wealready know to
+not exist.
+
+\case{6.1}{$h((01)^\omega) = a$ and $h((10)^\omega) = c$} Thus, we get
+that $c \rightarrow_1 a$. It follows that $c \not \rightarrow_1 c$ because
+otherwise we get a homomorphism $T_1 \to P; 0 \mapsto a; 1 \mapsto c$.
+
+\case{6.2}{$h((01)^\omega) = b$ and $h((10)^\omega) = a$} Thus, we get
+$b \rightarrow_0 a$ and $a \rightarrow_1 b$.
+
+\case{6.2}{$h((01)^\omega) = b$ and $h((10)^\omega) = c$} Thus, we get
+$b \rightarrow_0 c$.
+
+
+[other approach:]
+
+We distinguish
 further cases depending on whether $c$ has no reflexive arrows, or it
 is $1$- or $0$-reflexive.
 
