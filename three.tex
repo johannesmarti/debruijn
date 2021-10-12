@@ -277,29 +277,33 @@ node in $T_k$, for instance $1^\omega$, that can not have color $a$.
 
 \section{Construction deterministic patterns}
 
-Every pattern gives rise to a relation $Q(P) \subseteq (P \times P)
-\times P$ such that $((a_0,a_1),c) \in Q(P)$ iff $a_0 \rightarrow_0 c$
-and $a_1 \rightarrow_1 c$. The relation $Q(P)$ is the \emph{construction
-relation} of $P$.
+\newcommand{\prearrow}[1]{{\rightarrow_{#1}^{-1}}}
 
-The pattern $P$ is \emph{construction deterministic} if $Q(P)$ is functional.
+The pattern $P$ is \emph{construction deterministic} if for all $p,q \in
+P$ and $a \in \Sigma$ if $\prearrow{a}(p) \cap \prearrow{a}(q) \neq
+\emptyset$ then $p = q$. Intuitively, this means that for each node
+knowing both the 0- and 1-predecessor of the node uniquely determines
+the node.
 
-A surjective function $f : P \to P'$ is \emph{compatible} with the
-construction relation iff for all $x$ and $y$ with $f(x) = f(y)$ it
-holds that $((x,b),c) \in Q(P)$ iff $((y,b),c) \in Q(P)$, and $((a,x),c)
-\in Q(P)$ iff $((a,x),c) \in Q(P)$.
+We weaken the notion of construction deterministic patterns to be
+deterministic only up to a partition of the nodes in the pattern.
 
-Let $f : P \to P'$ be a surjective function that is compatible with the
-construction relation of $P$. Then $P$ is \emph{construction
-$f$-deterministic } if $f(c) = f(c')$ whenever $((a,b),c) \in Q(P)$ and
-$((a,b),c') \in Q(P)$.
+A \emph{partition} of a pattern $P$ is a surjective function $f : P \to
+P'$. A partition $P$ is \emph{non-trivial} if $|P'| > 1$, that is, there
+is more than one equivalence class.
 
-Note that if $P$ is narrow then it is $\mathsf{id}$-narrow, for the
-identity map $\mathsf{id} : P \to P$.
+A partition $f$ of $P$ is \emph{compatible} if for all $p' \in P'$, $p
+\in P$ and $a \in \Sigma$ either $f^{-1}(p') \subseteq \prearrow{a}(p)$
+or $f^{-1}(p') \cap \prearrow{a}(p) = \emptyset$.
+
+Let $f : P \to P'$ be a compatible partition of $P$. Then $P$ is
+\emph{construction $f$-deterministic} if for all $p,q \in P$ and $a \in
+\Sigma$ if $\prearrow{a}(p) \cap \prearrow{a}(q) \neq \emptyset$ then
+$f(p) = f(q)$.
 
 \begin{lemma} \label{killer lemma}
- If $P$ is construction $f$-deterministic then there is no $k$ such that
-$T_k \to P$.
+ If $P$ is construction $f$-deterministic for a non-trivial, compatible
+partition $f$ then there is no $k$ such that $T_k \to P$.
 \end{lemma}
 
 
