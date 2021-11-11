@@ -81,15 +81,23 @@ This case is symmetric to Case~2.
 
 \case{5}{$a \rightarrow_0 c \rightarrow_0 b$ and $b \rightarrow_1 c
 \rightarrow_1 a$}
-We argue that in this case all the assumption of Lemma~\ref{first killer
-lemma} are satisfied. We already know that $a \not \rightarrow_1 a$ and
-$b \not \rightarrow_0 b$. Moreover, $c \not \rightarrow_0 c$ holds
-because otherwise we have the homomorphism $g : T_1 \to P, 0 \mapsto c,
-1 \mapsto b$. A symmetric argument shows that $c \not \rightarrow_1 c$.
-To establish $a \not \rightarrow_0 b$ consider what happens if $a
+We argue that in this case leads to a weakly construction deterministic
+pattern. We already know that $a \not \rightarrow_1 a$ and $b \not
+\rightarrow_0 b$. Moreover, $c \not \rightarrow_0 c$ holds because
+otherwise we have the homomorphism $g : T_1 \to P, 0 \mapsto c, 1
+\mapsto b$. A symmetric argument shows that $c \not \rightarrow_1 c$. To
+establish $a \not \rightarrow_0 b$ consider what happens if $a
 \rightarrow_0 b$. Then we can construct the homomorphism $g : T_2 \to P,
 00, 01 \mapsto a, 10 \mapsto c, 11 \mapsto b$. Symmetric reasoning shows
-that $b \not \rightarrow_1 a$.
+that $b \not \rightarrow_1 a$. The maximal pattern that we might have
+now is as follows
+\begin{align*}
+ a,b,c & \rightarrow_0 a & c \rightarrow_1 a \\
+ a,b & \rightarrow_0 c & a,b \rightarrow_1 c \\
+ c & \rightarrow_0 b & a,c,b \rightarrow_1 b
+\end{align*}
+This pattern is weakly construction deterministic for the partition that
+identifies $a$ with $b$.
 
 \case{6}{$a \rightarrow_0 c \rightarrow_0 b$ and $b \rightarrow_1 a
 \rightarrow_1 c$}
@@ -103,33 +111,33 @@ P; 000,001,101 \mapsto a; 010,011 \mapsto c; 100,110,111 \mapsto b$. If
 $b \rightarrow_1 c$ was the case then we would get the homomorphism $T_2
 \to P; 00 \mapsto a; 01 \mapsto c; 10,11 \mapsto b$.
 
-Observe that $h((01)^\omega) \rightarrow_0 h((10)^\omega)$ and 
-$h((10)^\omega) \rightarrow_1 h((00)^\omega)$. Clearly
-$h((10)^\omega) \neq h((00)^\omega)$ because otherwise we would have a
-coloring of $T_0$. We distinguish cases how $h((10)^\omega)$ and
-$h((00)^\omega)$ distribute over $a$, $b$ and $c$, excluding all options
-that are impossible because of the connections that wealready know to
-not exist.
+% Observe that $h((01)^\omega) \rightarrow_0 h((10)^\omega)$ and
+% $h((10)^\omega) \rightarrow_1 h((00)^\omega)$. Clearly $h((10)^\omega)
+% \neq h((00)^\omega)$ because otherwise we would have a coloring of
+% $T_0$. We distinguish cases how $h((10)^\omega)$ and $h((00)^\omega)$
+% distribute over $a$, $b$ and $c$, excluding all options that are
+% impossible because of the connections that we already know to not exist.
+% 
+% \case{6.1}{$h((01)^\omega) = a$ and $h((10)^\omega) = c$} Thus, we get
+% that $c \rightarrow_1 a$. It follows that $c \not \rightarrow_1 c$
+% because otherwise we get a homomorphism $T_1 \to P; 0 \mapsto a; 1
+% \mapsto c$.
+% 
+% \case{6.2}{$h((01)^\omega) = b$ and $h((10)^\omega) = a$} Thus, we get
+% $b \rightarrow_0 a$ and $a \rightarrow_1 b$.
+% 
+% \case{6.2}{$h((01)^\omega) = b$ and $h((10)^\omega) = c$} Thus, we get
+% $b \rightarrow_0 c$.
 
-\case{6.1}{$h((01)^\omega) = a$ and $h((10)^\omega) = c$} Thus, we get
-that $c \rightarrow_1 a$. It follows that $c \not \rightarrow_1 c$ because
-otherwise we get a homomorphism $T_1 \to P; 0 \mapsto a; 1 \mapsto c$.
 
-\case{6.2}{$h((01)^\omega) = b$ and $h((10)^\omega) = a$} Thus, we get
-$b \rightarrow_0 a$ and $a \rightarrow_1 b$.
-
-\case{6.2}{$h((01)^\omega) = b$ and $h((10)^\omega) = c$} Thus, we get
-$b \rightarrow_0 c$.
-
-
-[other approach:]
+[other approach]
 
 We distinguish
 further cases depending on whether $c$ has no reflexive arrows, or it
 is $1$- or $0$-reflexive.
 
 \case{6.1}{$c \not \rightarrow_0 c$ and $c \not \rightarrow_1 c$}
-This case closes because we obtain the deterministic pattern
+This case closes because we obtain the construction deterministic pattern
 \begin{align*}
  a,b & \rightarrow_0 a & c,b \rightarrow_1 a \\
  a,b & \rightarrow_0 c & a \rightarrow_1 c \\
@@ -144,6 +152,7 @@ This case closes because we obtain the deterministic pattern
 
 [open]
 
+[end other approach]
 
 \case{7}{$a \rightarrow_0 b \rightarrow_0 c$ and $b \rightarrow_1 a,c$}
 This case is symmetric to Case~3.
@@ -155,168 +164,6 @@ This case is symmetric to Case~6.
 \case{9}{$a \rightarrow_0 b \rightarrow_0 c$ and $b \rightarrow_1 a
 \rightarrow_1 c$} This case closes because we get a homomorphism $g :
 T_1 \to P, 0 \mapsto a, 1 \mapsto b$.
-
-\section{Killer induction}
-
-\begin{lemma} \label{first killer lemma}
- Assume $P$ has three elements $a$, $b$ and $c$ such that $a \not
-\rightarrow_1 a$, $b \not \rightarrow_0 b$, $c \not \rightarrow_0 c$,
-$c \not \rightarrow_1 c$, $a \not \rightarrow_0 b$ and $b \not
-\rightarrow_1 a$. Then there is no $k$ such that $T_k \to P$.
-\end{lemma}
-\begin{proof}
- Assume for a contradiction that $h : T_k \to P$.
-
-Clearly, $h(0^\omega) = a$.
-
-Note first that the only $1$-predecessor of $a$ is $c$, the only
-$0$-predecessor of $b$ is $c$ and \dots
-
-\medskip
-
-We prove with an induction over $n$ that
-\begin{itemize}
- \item if $n$ is even then $\forall a_1 \exists x_2 \dots
-\forall a_{n - 1} \exists x_n \  h(x_n a_{n - 1} \dots x_2 a_1 1 0^\omega) = c$,
-and
- \item if $n$ is odd then $\forall a_1 \exists x_2
-\dots \exists x_{n - 1} \forall a_n \  h(a_n x_{n - 1}\dots
-x_2 a_1 1 0^\omega) \in \{a, b\}$.
-\end{itemize}
-For the base case, where $n = 0$ observe that $h(10^\omega) = c$ because
-$h(10^\omega) \rightarrow_1 h(0^\omega)$. In the inductive step we
-assume that the claim holds for $n$ and distinguish cases depending on
-whether $n$ is even or odd.
-
-If $n$ is even then we have by inductive hypothesis that
-\[
- \forall a_1 \exists x_2 \dots \forall a_{n - 1} \exists x_n \  h(x_n
-a_{n - 1} \dots x_2 a_1 1 0^\omega) = c.
-\]
-It follows that
-\[
- \forall a_1 \exists x_2 \dots \forall a_{n - 1} \exists x_n \forall
-a_{n + 1} \ h(a_{n + 1} x_n
-a_{n - 1} \dots x_2 a_1 1 0^\omega) \in \{a,b\},
-\]
-because $c$ is is not a $a_{n + 1}$-predecessor of $c$ for either of
-$a_{n + 1} \in \{0,1\}$.
-
-If $n$ is odd then we have from the inductive hypothesis that
-\[
-\forall a_1 \exists x_2
-\dots \exists x_{n - 1} \forall a_n \  h(a_n x_{n - 1}\dots
-x_2 a_1 1 0^\omega) \in \{a, b\}.
-\]
-It follows that
-\[
- \forall a_1 \exists x_2 \dots \exists x_{n - 1} \forall x_n \exists
-x_{n + 1} \ h(e_{n + 1} a_n
-e_{n - 1} \dots x_2 a_1 1 0^\omega) = c,
-\]
-because $c$ is the only $1$-predecessor of $a$ and $c$ is the only
-$0$-predecessor of $b$.
-
-\medskip
-
-We then show that for all $n$, $i \leq n$ and all $b_1,\dots,b_i$
-\begin{itemize}
- \item if $n - i$ is even then $\forall a_1 \exists x_2 \dots \forall
-a_{n - i - 1} \exists e_{n - i} \  h(e_{n - i} a_{n - i - 1} \dots x_2
-a_1 1 0^\omega b_1 \dots b_i) = c$, and
- \item if $n - i$ is odd then $\forall a_1 \exists x_2
-\dots \exists x_{n - i - 1} \forall a_{n - i} \
-h(a_{n - i} x_{n - i - 1} \dots
-x_2 a_1 1 0^\omega b_1 \dots b_i) \in \{a,b\}$.
-\end{itemize}
-To prove this, fix an arbitrary $n$ and then do an induction over $i
-\leq n$. The base case where $i = 0$ is precisely the claim from the
-previous induction. In the inductive step we assume the claim holds for
-$i$ and distinguish cases depending on whether $n - i$ is even or odd.
-
-If $n - i$ is even then we have as inductive assumption that for all
-$b_1,\dots,b_i$
-\[
- \forall a_1 \exists x_2 \dots \forall a_{n - i - 1} \exists e_{n - i} \
-h(e_{n - i} a_{n - i - 1} \dots x_2 a_1 1 0^\omega b_1 \dots b_i) = c.
-\]
-We show that for all $b_1,\dots,b_i,b_{i + 1}$
-\[
- \forall a_1 \exists x_2 \dots \exists x_{n - i - 2} \forall a_{n - i -
-1} \ h(a_{n - i - 1} x_{n - i - 2} \dots x_2 a_1 1 0^\omega b_1 \dots
-b_i b_{i + 1}) \in \{a,b\}.
-\]
-To this aim fix $b_1,\dots,b_i,b_{i + 1}$. By the inductive hypothesis
-we have that for all $a_1$ there is a $x_2$ such that \dots there is
-$x_{n - i - 2}$ such that for all $a_{n - i - 1}$ we have $\exists e_{n
-- i} \ h(e_{n - i} a_{n - i - 1} \dots x_2 a_1 1 0^\omega b_1 \dots b_i)
-  = c$. This means that the $e_{n - i}$-predecessor of $a_{n - i - 1}
-x_{n - i - 2} \dots x_2 a_1 1 0^\omega b_1 \dots b_i b_{i + 1}$ maps to
-$c$. Because $c \not \rightarrow_{e_{n - i}} c$ it follows that $h(a_{n
-- i - 1} x_{n - i - 2} \dots x_2 a_1 1 0^\omega b_1 \dots b_i b_{i + 1})
-\in \{a,b\}$.
-
-If $n - i$ is odd then we have as inductive assumption that for all
-$b_1,\dots,b_i$
-\[
- \forall a_1 \exists x_2
-\dots \exists x_{n - i - 1} \forall a_{n - i} \
-h(a_{n - i} x_{n - i - 1} \dots
-x_2 a_1 1 0^\omega b_1 \dots b_i) \in \{a,b\}.
-\]
-We show that for all $b_1,\dots,b_i,b_{i + 1}$
-\[
- \forall a_1 \exists x_2 \dots \forall a_{n - i - 2} \exists x_{n - i -
-1} \ h(e_{n - i - 1} a_{n - i - 2} \dots x_2 a_1 1 0^\omega b_1 \dots
-b_i b_{i + 1}) = c.
-\]
-To this aim fix $b_1,\dots,b_i,b_{i + 1}$. By the inductive hypothesis
-we have that for all $a_1$ there is a $x_2$ such that \dots there is
-$x_{n - i - 2}$ such that for all $a_{n - i - 1}$ we have $\forall a_{n
-- i} \ h(a_{n - i} e_{n - i - 1} \dots x_2 a_1 1 0^\omega b_1 \dots b_i)
-  \in \{a,b\}$. This means that both predecessors of $x_{n - i - 1} a_{n
-- i - 2} \dots x_2 a_1 1 0^\omega b_1 \dots b_i b_{i + 1}$ map to either
-$a$ or $b$, but not to $c$. It follows that $h(a_{n - i - 1} x_{n - i -
-2} \dots x_2 a_1 1 0^\omega b_1 \dots b_i b_{i + 1}) = c$, because $a$
-has no $1$ predecessor among $\{a,b\}$ and $b$ has no $0$-predecessor
-among $\{a, b\}$.
-
-\medskip
-
-We finally show that for all $n$ and $b_1,\dots,b_n$
-\[
- h(0^\omega b_1,\dots b_n) = a.
-\]
-The base case where $n = 0$ holds because $h(0^\omega) = a$.
-In the inductive step we assume that for all $b_1,\dots,b_n$
-\[
- h(0^\omega b_1,\dots b_n) = a.
-\]
-We choose $b_1,\dots,b_n,b_{n + 1}$ and need to show that
-\[
- h(0^\omega b_1,\dots b_n b_{n + 1}) = a.
-\]
-We can think of the inductive hypothesis as telling us that the
-$0$-predecessor of $0^\omega b_1,\dots b_n b_{n + 1}$ has color $a$.
-From the previous induction for the case where the $n$ from the
-statement of the previous induction is the same as our current $n$ and
-the $i$ from the statement of the previous induction is also $n$ we get
-that
-\[
- h(1 0^\omega b_1,\dots b_n) = c.
-\]
-This tells us that the $1$-predecessor of $0^\omega b_1,\dots b_n b_{n +
-1}$ has color $c$. It follows that $0^\omega b_1,\dots b_n b_{n +
-1}$ has color $a$ because $a \not \rightarrow_0 c$ and $c \not
-\rightarrow_1 c$.
-
-\medskip
-
-We have shown that all nodes that are reachable over a $0$-path from
-$0^\omega$ need to have color $a$. But since all nodes in $T_k$ are
-reachable by such a path we have a contradiction because there is some
-node in $T_k$, for instance $1^\omega$, that can not have color $a$.
-\end{proof}
 
 
 \section{Construction deterministic patterns}
@@ -337,6 +184,10 @@ A pattern $P$ is \emph{weakly construction deterministic} if there is
 some non-trivial partition $f : P \to P'$ such that for all $p,q \in P$
 and $a \in \Sigma$ if $f[\prearrow{a}(p)] \cap f[\prearrow{a}(q)] \neq
 \emptyset$ then $f(p) = f(q)$.
+
+It is an easy ovservation that if a pattern is (weakly) construction
+determinisitic then so is any sub pattern that has the same colors but
+less edges.
 
 \begin{lemma} \label{killer lemma}
  If $P$ is weakly construction deterministic then there is no $k$ such
