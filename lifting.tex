@@ -18,13 +18,13 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{definition}[theorem]{Definition}
 
-\title{Lifting of patterns}
+\title{The lifting of patterns}
 
 \author{Johannes Marti}
 
 \begin{document}
 
-\maketitle
+%\maketitle
 
 
 \section{The definition}
@@ -36,11 +36,11 @@ The relations are defined such that for both $a \in \{0,1\}$ we have
  V \rightarrow_a W \iff \mbox{there is some } v \in V \mbox{ such that }
 v \rightarrow_a w \mbox{ for all } w \in W.
 \]
-One can show that if there is a homomorphism $h : P \to Q$ then there is
-a homomorphism $L(h) : L(P) \to L(Q)$. Thus, the lifting is a monotone
-operation on the homomorphism lattice. One can also show that there is a
-homomorphism $e : P \to L(P)$ for all patterns $P$. The homomorphism $e$
-maps any $v \in P$ to $e(v) = \{v\}$.
+One can show that if $h : P \to Q$ is a homomorphism then $L(h) : L(P)
+\to L(Q)$ with $L(h)(\{u,v\}) = \{h(u),h(v)\}$ is a homomorphism. Thus,
+the lifting is a monotone operation on the homomorphism lattice. One can
+also show that there is a homomorphism $e : P \to L(P)$ for all patterns
+$P$. The homomorphism $e$ maps any $v \in P$ to $e(v) = \{v\}$.
 
 The motivation for this notion is that one can show the following: For
 all patterns $P$ and numbers $n$:
@@ -62,9 +62,26 @@ We are now going to prove \eqref{eq:lifting property}.
 \end{equation*}
 \end{theorem}
 \begin{proof}
-For the left-to-right direction assume that we have a homomorphism $h :
+ For the left-to-right direction assume that we have a homomorphism $h :
 T_{n + 1} \to P$. We define that homomorphism $g : T_n \to L(P)$ by
-setting $g(v) = \{h(v0),h(v1)\}$ for all $v \in \Sigma^n$.
+setting $g(v) = \{h(v0),h(v1)\}$ for all $v \in \Sigma^n$. To see that
+this defines a homomorphism assume that we have $v \rightarrow_b w$ in
+$T_n$ for $v,w \in \Sigma^n$. We need to show that $\{h(v0),h(v1)\}
+\rightarrow_b \{h(w0),h(w1)\}$ holds in $L(P)$. Consider $bw$ in $T_{n +
+1}$. By definition of the de Bruijn graph $T_{n + 1}$ we have that $bw
+\rightarrow_b w0$ and $bw \rightarrow_b w1$. It thus suffices to show
+that there is some $c \in \Sigma$ for which $bw = vc$. If $n = 0$ then
+we can simply set $c = b$. If $n > 0$ then it follows from $v
+\rightarrow_b w$ that $v = b v'$ and $w = v' d$ for some $v' \in
+\Sigma^{n - 1}$ and $d \in \Sigma$. We then have that $b v' d
+\rightarrow_b w 0$ holds in $T_{n + 1}$. Because the $b$-predecessor of
+$w 0$ is unique it follows that $b w = b v' d = v d$. So we can set $c =
+d$.
+
+ For the right-to-left direction assume that there is a homomorphism $g :
+T_n \to L(P)$. We define a homomorphism $h : T_{n + 1} \to P$. To this
+aim consider any $w c$ in $T_{n + 1}$ where $w \in \Sigma^n$ and $c \in
+\Sigma$.
 
 \end{proof}
 
