@@ -20,7 +20,7 @@
 
 \title{The lifting of patterns}
 
-\author{Johannes Marti}
+\author{Johannes Marti and Leif Sabellek}
 
 \begin{document}
 
@@ -78,11 +78,27 @@ we can simply set $c = b$. If $n > 0$ then it follows from $v
 $w 0$ is unique it follows that $b w = b v' d = v d$. So we can set $c =
 d$.
 
- For the right-to-left direction assume that there is a homomorphism $g :
-T_n \to L(P)$. We define a homomorphism $h : T_{n + 1} \to P$. To this
-aim consider any $w c$ in $T_{n + 1}$ where $w \in \Sigma^n$ and $c \in
-\Sigma$.
-
+ For the right-to-left direction assume that there is a homomorphism $g
+: T_n \to L(P)$. If $n = 0$ then $h : T_0 \rightarrow L(P)$ yields a
+point $h(\star) = \{x,x'\}$ in $L(P)$ such that $\{x,x'\} \rightarrow_b
+\{x,x'\}$ for both $b \in \Sigma$. This means that for both $b \in
+\Sigma$ there is an $x_b \in \{x,x'\}$ such that $x_b \rightarrow_b x_c$
+for both $c \in \Sigma$. The homomorphism $h : T_1 \to P$ can then map
+$0$ to $x_0$ and $1$ to $x_1$. In the other case we have that $n > 0$.
+To define a homomorphism $h : T_{n + 1} \to P$ consider any $w c$ in
+$T_{n + 1}$, where $w \in \Sigma^n$ and $c \in \Sigma$. Because $n > 0$
+we have $w = b u$ for some $b \in \Sigma$ and $u \in \Sigma^{n - 1}$. In
+$T_n$ we then get the edge $b u \rightarrow_b u c$ and because $g$ is a
+homomorphism there must be a $b$-edge from $g(w) = g(bu) = \{x,x'\}$ to
+$g(uc) = \{y,y'\}$. Let $x^\circ \in \{x,x'\}$ be such that $x^\circ
+\rightarrow_b y$ and $x^\circ \rightarrow_b y'$ both hold in $P$. We
+define $h(wc) = x^\circ$. To see that $h : T_{n + 1} \to P$ is a
+homomorphism consider an edge $b u c \rightarrow_b u c d$ in $T_{n + 1}$
+for any $u \in \Sigma^{n - 1}$ and $b,c,d \in \Sigma$. By the definition
+of $h$ we know that $h(u c d)$ must be one of the elements from $g(u c)
+= \{y,y'\}$. But $h(b u c)$ was defined to be the $x^\circ$ such that
+$x^\circ \rightarrow_b y$ and $x^\circ \rightarrow_b y'$. Hence, $h(b u
+c) \rightarrow_b h(u c d)$.
 \end{proof}
 
 
