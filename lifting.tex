@@ -1,0 +1,86 @@
+\documentclass[a4paper]{article}
+
+\usepackage{a4wide}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\newcommand{\first}[1]{\mathsf{first}({#1})}
+\newcommand{\last}[1]{\mathsf{last}({#1})}
+\newcommand{\prearrow}[1]{{\rightarrow_{#1}^{-1}}}
+
+\renewcommand{\iff}{\quad \mbox{iff} \quad}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+
+\title{Lifting of patterns}
+
+\author{Johannes Marti}
+
+\begin{document}
+
+\maketitle
+
+
+\section{The definition}
+
+Let $P$ be a pattern. The lifting $L(P)$ is a pattern that has as nodes
+all subsets $V \subseteq P$ with $V \neq \emptyset$ and $|V| \leq 2$.
+The relations are defined such that for both $a \in \{0,1\}$ we have
+\[
+ V \rightarrow_a W \iff \mbox{there is some } v \in V \mbox{ such that }
+v \rightarrow_a w \mbox{ for all } w \in W.
+\]
+One can show that if there is a homomorphism $h : P \to Q$ then there is
+a homomorphism $L(h) : L(P) \to L(Q)$. Thus, the lifting is a monotone
+operation on the homomorphism lattice. One can also show that there is a
+homomorphism $e : P \to L(P)$ for all patterns $P$. The homomorphism $e$
+maps any $v \in P$ to $e(v) = \{v\}$.
+
+The motivation for this notion is that one can show the following: For
+all patterns $P$ and numbers $n$:
+\begin{equation} \label{eq:lifting property}
+ T_{n + 1} \to P \iff T_n \to L(P).
+\end{equation}
+Thus, it follows that $T_n \to P$ iff $T_0 \to L^n(P)$, where $L^n$
+denotes the $n$-fold application of $L$. Note that $T_0 \to L^n(P)$ just
+means that $L^n(P)$ has a point with reflexive $0$ and $1$-loops.
+
+
+\section{The proof}
+
+We are now going to prove \eqref{eq:lifting property}.
+\begin{theorem}
+ For all patterns $P$ and numbers $n \in \omega$  
+\begin{equation*}
+ T_{n + 1} \to P \iff T_n \to L(P).
+\end{equation*}
+\end{theorem}
+\begin{proof}
+For the left-to-right direction assume that we have a homomorphism $h :
+T_{n + 1} \to P$. We define that homomorphism $g : T_n \to L(P)$ by
+setting $g(v) = \{h(v0),h(v1)\}$ for all $v \in \Sigma^n$.
+
+\end{proof}
+
+
+\section{The plan}
+
+The idea is to show that iterated applications of $L$ reaches a fixpoint
+after finitely many steps. That is, we want to show that for every
+pattern $P$ there is some computable $n$ such that $L^{n + 1}(P) \to
+L^n(P)$. Because $P \to L(P)$ and $L$ is monotone we have that $L^{n +
+1}(P) \leftarrow L^n(P)$, which entails means that $L^{n + 1} (P)$ and
+$L^n(P)$ are homomorphically equivalent. Then, all larger $L^k(P)$ with
+$k \geq n$ are also homomorphically equivalent to $L^n(P)$. We can then
+check whether $T_0 \to L^k(P)$ for any $k$, by simply checking whether
+$T_0 \to L^n(P)$.
+
+
+
+\end{document}
