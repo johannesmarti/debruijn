@@ -1,0 +1,88 @@
+\documentclass[a4paper]{article}
+
+\usepackage{a4wide}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\newcommand{\any}{{*}}
+\newcommand{\size}[1]{{|{#1}|_s}}
+\newcommand{\first}[1]{\mathsf{first}({#1})}
+\newcommand{\last}[1]{\mathsf{last}({#1})}
+\newcommand{\subpatterns}{\mathcal{S}}
+\newcommand{\prearrow}[1]{{\rightarrow_{#1}^{-1}}}
+\newcommand{\powerset}{\mathcal{P}}
+\newcommand{\Q}{\mathcal{Q}}
+
+
+%\usepackage{tikz}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand{\case}[2]{\vspace{1ex}\noindent\textit{Case #1, #2:}}
+%\newcommand{\case}[2]{\textbf{Case #1}, #2:}
+
+\title{Construction Deterministic Patterns}
+
+\author{Johannes Marti}
+
+\begin{document}
+
+\maketitle
+
+\noindent The pattern $P$ is \emph{very strongly construction
+deterministic} if for all $p,q \in P$ and $a \in \Sigma$ if
+$\prearrow{a}(p) \cap \prearrow{a}(q) \neq \emptyset$ then $p = q$.
+Intuitively, this means that knowing both the 0- and 1-predecessor of
+some node uniquely determines the node.
+
+We weaken the notion of construction deterministic patterns to be
+deterministic only up to a partition of the nodes in the pattern.
+
+A \emph{partition} of a set $P$ is a surjective function $f : P \to P'$.
+A partition $P$ is \emph{non-trivial} if $|P'| > 1$, that is, there is
+more than one equivalence class.
+
+A pattern $P$ is \emph{strongly construction deterministic} if there is
+some non-trivial partition $f : P \to P'$ such that for all $p,q \in P$
+and $a \in \Sigma$ if $f[\prearrow{a}(p)] \cap f[\prearrow{a}(q)] \neq
+\emptyset$ then $f(p) = f(q)$.
+
+One can weaken this notion even further: A pattern $P$ is
+\emph{construction deterministic} if there is a family $\Q \subseteq
+\powerset P$ with $P \notin \Q$ such that for all $Q_0, Q_1 \in \Q$
+there is a $Q \in \Q$ such that
+\[
+ [Q_0]{\rightarrow_0} \cap [Q_1]{\rightarrow_1} \subseteq Q.
+\]
+This notation means $[Q_a]{\rightarrow_a} = \{p \in P \mid q \rightarrow_a
+p \mbox{ for some } q \in Q_a\}$ for both $a$.
+
+It is a relatively easy observation that if $P$ is construction
+deterministic as witnessed by some $\Q$ then this fact is also witnessed
+by the downwards closure ${\Q\!\downarrow} = \{Q' \subseteq P \mid Q'
+\subseteq Q \mbox{ for some } Q \in \Q\}$ of $\Q$ and by the anti-chain
+of maximal elements of $\Q$ under the $\subseteq$ ordering.
+
+It is also an easy observation that if a pattern is construction
+deterministic then so is any sub pattern that has the same colors but
+less edges.
+
+\begin{lemma} \label{killer lemma}
+ If $P$ is construction deterministic then there is no $k$ such
+that there is a surjective homomorphism $T_k \to P$.
+\end{lemma}
+There seem to be two possible approaches to prove this Lemma. One is a
+direct argument as Leif has suggested: We assume that there is a
+surjective homomorphism and then show that the colors of all nodes need
+to come from a class in $\Q$. The other approach is to show that in the
+liftings we never construct lifted nodes whose underlying set is not
+contained in some element of $\Q$.
+
+
+
+\end{document}
