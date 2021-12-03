@@ -54,8 +54,8 @@ and $a \in \Sigma$ if $f[\prearrow{a}(p)] \cap f[\prearrow{a}(q)] \neq
 
 One can weaken this notion even further: A pattern $P$ is
 \emph{construction deterministic} if there is a family $\Q \subseteq
-\powerset P$ with $P \notin \Q$ such that for all $Q_0, Q_1 \in \Q$
-there is a $Q \in \Q$ such that
+\powerset P$ with $P \subseteq \bigcup \Q$ and $P \notin \Q$ such that
+for all $Q_0, Q_1 \in \Q$ there is a $Q \in \Q$ such that
 \[
  [Q_0]{\rightarrow_0} \cap [Q_1]{\rightarrow_1} \subseteq Q.
 \]
