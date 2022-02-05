@@ -52,7 +52,7 @@ denotes the $n$-fold application of $L$. Note that $T_0 \to L^n(P)$ just
 means that $L^n(P)$ has a point with reflexive $0$ and $1$-loops.
 
 
-\section{The proof}
+\section{The main property}
 
 We are now going to prove \eqref{eq:lifting property}.
 \begin{theorem}
@@ -102,17 +102,38 @@ c) \rightarrow_b h(u c d)$.
 \end{proof}
 
 
-\section{The plan}
+\section{More facts}
 
-The idea is to show that iterated applications of $L$ reaches a fixpoint
-after finitely many steps. That is, we want to show that for every
-pattern $P$ there is some computable $n$ such that $L^{n + 1}(P) \to
-L^n(P)$. Because $P \to L(P)$ and $L$ is monotone we have that $L^{n +
-1}(P) \leftarrow L^n(P)$, which entails that $L^{n + 1} (P)$ and
-$L^n(P)$ are homomorphically equivalent. Then, all larger $L^k(P)$ with
-$k \geq n$ are also homomorphically equivalent to $L^n(P)$. We can then
-check whether $T_0 \to L^k(P)$ for any $k$, by simply checking whether
-$T_0 \to L^n(P)$.
+One can check that $L$ defines a functor.
 
+\begin{definition}
+ Let $P$ be any pattern. Define the \emph{canonical embedding} $e : P
+\to L(P)$ such that $e(x) = [x]$. Inductively we can define $e^n : P \to
+L^n(P)$ such that $e^0 : P \to P$ is the identity on $P$ and $e^{n + 1}
+= e \circ e^n$.
+\end{definition}
+
+One can check that $e^{n + m} = L^n(e^m) \circ e^n$ for all $n$ and $m$.
+
+
+\begin{definition}
+ Define the \emph{deepening} $d : L^1(P) \to L^2(P)$ such that
+$d(\{x,y\}) = \{\{x\},\{y\}\}$.
+Define the \emph{deepening} $d^m_n : L^n(P) \to L^{m +
+n}(P)$
+\end{definition}
+
+\begin{proposition}
+Let $P$ be any pattern. Then the following hold:
+\begin{enumerate}
+ \item $x \rightarrow_a y$ iff $e(x) \rightarrow_a e(y)$ for all $x,y
+\in P$,
+ \item $x \rightarrow_a y$ iff $d^m_n(x) \rightarrow_a d^m_n(y)$ for all
+$x,y \in L^n(P)$,
+% \item $x \rightarrow_a y$ implies $x \rightarrow_a e(y)$,
+\end{enumerate}
+
+
+\end{proposition}
 
 \end{document}
