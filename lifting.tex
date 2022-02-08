@@ -7,6 +7,7 @@
 \usepackage{amsthm}
 
 \newcommand{\first}[1]{\mathsf{first}({#1})}
+\renewcommand{\flat}[1]{\overline{#1}}
 \newcommand{\last}[1]{\mathsf{last}({#1})}
 \newcommand{\prearrow}[1]{{\rightarrow_{#1}^{-1}}}
 
@@ -132,8 +133,37 @@ Let $P$ be any pattern. Then the following hold:
 $x,y \in L^n(P)$,
 % \item $x \rightarrow_a y$ implies $x \rightarrow_a e(y)$,
 \end{enumerate}
-
-
 \end{proposition}
+
+
+\section{More thoughts}
+
+We can also restrict our attention to the subcategory of all patterns in
+which every point has at least one $a$-predecessor for every label $a$.
+$L$ can then be constraint to only add doubletons if they have this
+property. In the following we assume to be in this subcategroy, and
+write $E$ for the $L$ of the outer category, which does not have this
+restriction.
+
+\begin{lemma}
+ Let $X \in E^k(P)$ and $U,V \in L^n(P)$ such that
+\[
+ \flat{X} \subseteq [\flat{U}]{\rightarrow_0} \cap
+[\flat{V}]{\rightarrow_1}.
+\]
+Then there is some $i$ such that $U \rightarrow_0 d^i(X)$ and $V
+\rightarrow_1 d^i(X)$.
+\end{lemma}
+
+\begin{lemma}
+ If $P$ is construction deterministic then there is a $k$ and a $U \in
+L^k(P)$ such that $\flat{U} = P$. Moreover, for all $X \in E^i(P)$ there
+is some $j$ such that $d^j(X) \in L^{i + j}(P)$.
+\end{lemma}
+\begin{proof}
+ It follows that $[\flat{U}]{\rightarrow_0} = P =
+[\flat{U}]{\rightarrow_1}$ and thus 
+\end{proof}
+
 
 \end{document}
