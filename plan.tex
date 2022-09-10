@@ -1,0 +1,38 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\newcommand{\first}[1]{\mathsf{first}({#1})}
+\newcommand{\last}[1]{\mathsf{last}({#1})}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+
+\title{Plans}
+
+\author{Johannes Marti}
+
+\begin{document}
+
+\maketitle
+
+\section{Plans}
+
+A position is a pair $(w,x)$, where $w$ is a word, $x$ is a non-empty
+minimal word and if $w \neq \epsilon$ then $\last{w} \neq \last{x}$.
+
+Alternative:
+A position is either a non-empty minimal word $X$ or a pair $(w,x)$ consisting
+of a non-empty minimal word, $x$ together with a non-empty world $w$
+such that $\last{w} \neq \last{x}$.
+
+A set of positions $P$ is \emph{closed} if
+\begin{enumerate}
+
+\end{enumerate}
+
+
+\end{document}
