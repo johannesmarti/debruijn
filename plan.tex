@@ -31,10 +31,13 @@ such that $\last{w} \neq \last{x}$.
 
 A set of positions $P$ is \emph{closed} if
 \begin{enumerate}
- \item if $a x \in P$ then $x a \in P$,
- \item if $x \in P$ and $a \neq \last{x}$ then $(a,x) \in P$, and
-    % In this condition we could also close off
- \item if $(w, x) \in P$ then for all $a \in \Sigma$ either
+ \item if $a x \in P$ then $x a \in P$;
+ \item if $x \in P$ and $a \neq \last{x}$ then either
+    \begin{enumerate}
+     \item $(a,x) \in P$, or
+     \item $ $; and
+    \end{enumerate}
+ \item if $(w, x) \in P$ $a \in \Sigma$ then either
     \begin{enumerate}
      \item $(aw, x) \in P$, or
      \item 
