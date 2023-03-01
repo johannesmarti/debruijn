@@ -67,6 +67,8 @@ stage we consider a leaf $w$ of $D_i$ and add either one or two children
 of $w$ to $D_i$. The set $U$ and the trees $S$ and $D$ are then the
 obvious limits of this construction.
 
+\newcommand{\pred}{\mathsf{pred}}
+
 In the inductive construction we maintain the following conditions as
 invariants for $(U_i,S_i,D_i)$:
 \begin{enumerate}
@@ -74,9 +76,22 @@ invariants for $(U_i,S_i,D_i)$:
 that both $s_i(w)$ and $d_i(w)$ are defined if $w \neq \epsilon$.
 % Maybe this condition is obvious and should not be mentioned
 % explicitely.
+ \item For every word $w \in U_i \setminus \{\epsilon\}$ we have that
+$|s(w)| < |w|$.
+ \item The first letters of $s(w)$ and $w$ are the same for all $w \in
+U_i$ such that $s(w) \neq \epsilon$.
  \item For all $w \in U_i \setminus \{\epsilon\}$ we have that
 $\lambda(w) = w$, where we take $\lambda$ to be defined in terms of
 $S_i$ and $D_i$.
+ \item For every $w \in U_i$ that is not a leaf in $D_i$ and letter $a
+\in \Sigma$ there is a node $\pred_a(w) \in U_i$ that starts
+with $a$ and is somehow nicely related to $w$.
+\begin{enumerate}
+ \item The first letter of $\pred_a(w)$ starts is $a$.
+ \item If $\pred_a(s(w)) = \mathsf{turn}(w)$ then $\pred_a(w) =
+\mathsf{turn}(w)$.
+ \item If $\pred_a(s(w)) \neq \mathsf{turn}(w)$ then $d(\pred_a(w)) = w$.
+\end{enumerate}
 \end{enumerate}
 
 In the base case of the inductive construction we define $U_i =
