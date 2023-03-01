@@ -22,9 +22,31 @@
 
 \maketitle
 
-We define an infinite graph $(U,\rightarrow_0,\rightarrow_1)$ and a
-function $\epsilon : U \to U$. The domain $U$ consists of all acyclic
-words, that is, all worlds $w \in \Sigma^*$ such that there is not $u
-\in \Sigma^*$ such that $w = u^n$ for some $n \geq 2$.
+Let $\Sigma = \{a,b\}$. Order the set of all words from $\Sigma^*$ such
+that $w \sqsubseteq v$ if either the length of $w$ is smaller than the
+length of $v$ or if $w$ and $v$ are of the same length and $w$ comes
+before $v$ in the obvious lexicographic order, assuming that a linear
+order over $\Sigma$ is defined. Clearly, $\sqsubseteq$ is well-founded
+linear order.
+
+We define a set of words $U \subseteq \Sigma^*$ plus two trees $S$ and
+$D$ over $U$. The root of both trees is the empty word $\epsilon$. We
+write $S w v$ if $w$ is an ancestor of $v$ in the tree $S$. We write
+$s(w)$ for the unique parent of $w \neq \epsilon$ in the tree $S$. We
+use the analogous notations $D w v$ and $d(w)$ for the tree $D$.
+
+The set $U$ and the trees $S$ and $D$ are defined in stages over $i \in
+\omega$ such that at state $i$ we have already defined $(U_i,S_i,D_i)$
+and are going to define $(U_{i + 1},S_{i + 1},D_{i + 1})$. such that
+$U_i \subseteq U_{i + 1}$ and the trees $S_{i + 1}$ and $D_{i + 1}$ have
+the same structure as $S_i$ and $D_i$ for all elements in $U_i$. The set
+$U$ and the trees $S_i$ and $D_i$ are then the obvious limits of of
+these objects.
+
+In the inductive construction we maintain the following conditions as
+invariants for $(U_i,S_i,D_i)$:
+\begin{enumerate}
+ \item A word $w \in U_i$ is a leaf of $S_i$ iff $w$ is a leaf of $D_i$.
+\end{enumerate}
 
 \end{document}
