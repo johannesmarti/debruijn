@@ -8,7 +8,6 @@
 
 \newcommand{\powerset}{\mathcal{P}}
 
-
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
@@ -99,6 +98,41 @@ In the base case of the inductive construction we define $U_i =
 that $\epsilon$ is the root with children $a$ and $b$. It is easy to
 check that this satisfies the conditions of the invariant.
 
+In the inductive case we pick any node $w$ that is a leaf of $D_i$. Then
+we add $D_{i + 1}$-children to of $w$ according to following procedure:
+For every letter $a \in \Sigma$ we make a case distinction depending on
+whether the last letter of $w$ is $a$.
 
+\medskip
+
+If $w \neq va$ we want to add a new $S_{i + 1}$-child $v$ of
+$\pred_a(s(w))$ as a $D_{i + 1}$-child of $w$. Consider the set
+\[
+ L = \{u \in U_i \mid (S u w \mbox{ or } u = w) \mbox{ and } (D u
+\pred_a(w) \mbox{ or } u = \pred_a(w)) \}.
+\]
+Let $l$ be the element of $d$ that is $D_i$ closest to $w$. There is
+such an element because $D_i$ is a tree and in any case the set is not
+empty because $\epsilon \in L$. Consider the word $v = a \pi(w,l)$. We
+add $v$ to the structure and set $d(v) = w$, $s(v) = \pred_a(s(w))$ and
+$\pred_a(w) = v$.
+
+\medskip
+
+If $w = va$ then we consider further cases depending on whether
+$\pred_a(s(w)) = av$ or not:
+
+If $\pred_a(s(w)) \neq av$ then we add $av$ to the tree and let it be a
+$D_{i + 1}$-child of $w$. We set $\pred_a(w) = av$ and $s(av) =
+\pred_a(s(w))$.
+% TODO: Why is a v not already in the tree?
+
+If $\pred_a(s(w)) = av$ the we set $\pred_a(w) = \pred_a(s(w))$ and for
+the current letter $a$ do not add any children of $w$ to the tree $D_i$.
+However, keep in mind that we still add children to $w$ for the
+other letters in $\Sigma$.
+
+\texttt{What is the status of $\pred_a(w)$? Do we need to define it? Or,
+is it determined by the structure $(U,S,D)$.}
 
 \end{document}
